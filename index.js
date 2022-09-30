@@ -15,6 +15,7 @@ app.use(express.json());
 const API_VERSION = "1.0";
 
 app.use(`/api/${API_VERSION}/user`, userRouter);
+app.use(`/api/${API_VERSION}/tea`, userRouter);
 
 app.listen(Number(process.env.PORT), () => {
   console.log(`Server up and running at port ${process.env.PORT}`);
