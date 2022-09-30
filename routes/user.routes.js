@@ -22,7 +22,7 @@ userRouter.post("/signup", async (req, res) => {
       )
     ) {
       return res.status(400).json({
-        msg: "Email ou senha invalidos. Verifique se ambos atendem as requisições.",
+        msg: "Email or password invalid. Check if both meet the requirements.",
       });
     }
 
@@ -50,7 +50,7 @@ userRouter.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ email: email });
 
     if (!user) {
-      return res.status(404).json({ msg: "Email ou senha invalidos." });
+      return res.status(404).json({ msg: "Email or password invalid." });
     }
 
     if (await bcrypt.compare(password, user.passwordHash)) {
@@ -66,7 +66,7 @@ userRouter.post("/login", async (req, res) => {
         token: token,
       });
     } else {
-      return res.status(401).json({ msg: "Email ou senha invalidos." });
+      return res.status(401).json({ msg: "Email or password invalid." });
     }
   } catch (err) {
     console.log(err);

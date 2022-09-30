@@ -2,6 +2,8 @@ import express from "express";
 import * as dotenv from "dotenv";
 import { connect } from "./config/db.config.js";
 import { userRouter } from "./routes/user.routes.js";
+import { forumRouter } from "./routes/forum.routes.js";
+import { commentRouter } from "./routes/comment.routes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -15,6 +17,8 @@ app.use(express.json());
 const API_VERSION = "1.0";
 
 app.use(`/api/${API_VERSION}/user`, userRouter);
+app.use(`/api/${API_VERSION}/forum`, forumRouter);
+app.use(`/api/${API_VERSION}/comment`, commentRouter);
 
 app.listen(Number(process.env.PORT), () => {
   console.log(`Server up and running at port ${process.env.PORT}`);
