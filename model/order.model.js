@@ -12,4 +12,4 @@ const orderSchema = new Schema({
   //role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
 });
 
-export const OrderModel = model("Order", orderSchema);
+export const orderModel = model("Order", orderModel);
