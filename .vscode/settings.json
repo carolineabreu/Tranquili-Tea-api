@@ -1,4 +1,7 @@
 {
+
+    "dotenv.enableAutocloaking": false
+
     "cSpell.words": [
         "atendem",
         "invalidos",
@@ -6,4 +9,5 @@
         "signup",
         "teste"
     ]
+
 }
