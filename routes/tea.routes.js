@@ -1,13 +1,10 @@
 import express from "express";
 import { generateToken } from "../config/jwt.config.js";
-//import isAuth from "../middlewares/isAuth.js";
+import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { isAdmin } from "../middlewares/isAdmin.js";
-import { UserModel } from "../model/user.model.js";
+import { UserModel } from "../model/tea.model";
 
-import bcrypt from "bcrypt";
-
-const SALT_ROUNDS = 10;
 
 const userRouter = express.Router();
 
@@ -22,7 +19,7 @@ userRouter.post("/signup", async (req, res) => {
       )
     ) {
       return res.status(400).json({
-        msg: "Email or password invalid. Check if both meet the requirements.",
+        msg: "Email ou senha invalidos. Verifique se ambos atendem as requisições.",
       });
     }
 
@@ -50,7 +47,7 @@ userRouter.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ email: email });
 
     if (!user) {
-      return res.status(404).json({ msg: "Email or password invalid." });
+      return res.status(404).json({ msg: "Email ou senha invalidos." });
     }
 
     if (await bcrypt.compare(password, user.passwordHash)) {
@@ -59,7 +56,6 @@ userRouter.post("/login", async (req, res) => {
       return res.status(200).json({
         user: {
           name: user.name,
-          username: user.username,
           email: user.email,
           _id: user._id,
           role: user.role,
@@ -67,7 +63,7 @@ userRouter.post("/login", async (req, res) => {
         token: token,
       });
     } else {
-      return res.status(401).json({ msg: "Email or password invalid." });
+      return res.status(401).json({ msg: "Email ou senha invalidos." });
     }
   } catch (err) {
     console.log(err);
@@ -76,8 +72,8 @@ userRouter.post("/login", async (req, res) => {
 });
 
 userRouter.get(
-  "/teste",
-  //  isAuth,
+  "/",
+  isAuth,
   attachCurrentUser,
   isAdmin,
   async (req, res) => {
