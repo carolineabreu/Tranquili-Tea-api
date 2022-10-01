@@ -2,38 +2,30 @@ import express from "express";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { UserModel } from "../model/user.model.js";
-import { cartModel } from "..cart.model";
-import { orderModel } from "../model/order.model.js";
+import { cartModel } from "../model/cart.model.js";
 
-const cartRouter = express.Router();
+const orderRouter = express.Router();
 
-// get ou post?
-cartRouter.post("/login", async (req, res) => {
+//qualquer user . findAll()
+// como puxar o cart para dentro ?
+// data.push
+cartModel();
+
+orderRouter.post("/order", async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    data.push(currentCart);
 
+    const { email, password } = req.body;
     const user = await UserModel.findOne({ email: email });
 
     if (!user) {
       return res
         .status(404)
-        .json({ msg: "Please Sign up to proceed to Checkout" });
-    }
-
-    if (await bcrypt.compare(password, user.passwordHash)) {
-      const token = generateToken(user);
-
-      return res.status(200).json({
-        user: {
-          name: user.name,
-          email: user.email,
-          _id: user._id,
-          role: user.role,
-        },
-        // token: token,
-      });
+        .json({ msg: "Please Log in or Sign up to proceed to Checkout" })
+        .redirect("/signup");
+      next("/order:id");
     } else {
-      return res.status(401).json({ msg: "Email ou senha invalidos." });
+      return res.status(200).json(req.currentCart).redirect("/order:id");
     }
   } catch (err) {
     console.log(err);
@@ -41,8 +33,12 @@ cartRouter.post("/login", async (req, res) => {
   }
 });
 
-userRouter.get(isAuth, attachCurrentUser, async (req, res) => {
-  return res.status(200).json(req.currentCart);
+orderRouter.get(isAuth, attachCurrentUser, async (req, res) => {
+  return res.status(200).json(req.currentCart).redirect("/order:id");
 });
 
-export { cartRouter };
+//UPDATE
+
+//DELETE
+
+export { orderRouter };
