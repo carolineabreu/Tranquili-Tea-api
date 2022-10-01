@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const cartSchema = new Schema({
-  product: [
+  products: [
     (quantity = { type: Number, required: true }),
     (price = { type: Number, required: true }),
   ],
@@ -9,6 +9,7 @@ const cartSchema = new Schema({
   zipCode: { type: Number },
   discountCoupons: { type: String },
   // role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
+ 
 });
 
 export const cartModel = model("Cart", cartSchema);
