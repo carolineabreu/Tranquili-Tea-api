@@ -1,6 +1,6 @@
 import express from "express";
 import { generateToken } from "../config/jwt.config.js";
-//import isAuth from "../middlewares/isAuth.js";
+import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { isAdmin } from "../middlewares/isAdmin.js";
 import { UserModel } from "../model/user.model.js";
@@ -76,13 +76,15 @@ userRouter.post("/login", async (req, res) => {
 });
 
 userRouter.get(
-  "/teste",
-  //  isAuth,
+  "/profile",
+  isAuth,
   attachCurrentUser,
-  isAdmin,
   async (req, res) => {
+    const loggedUser = req.currentUser;
+    const userData = await UserModel.findOne({ _id: loggedUser._id }).populate("teas");
     return res.status(200).json(req.currentUser);
   }
 );
+
 
 export { userRouter };
