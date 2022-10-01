@@ -1,48 +1,31 @@
 import express from "express";
-import isAuth from "../middlewares/isAuth.js";
-import attachCurrentUser from "../middlewares/attachCurrentUser.js";
-import { UserModel } from "../model/user.model.js";
-import { cartModel } from "..cart.model";
-import { orderModel } from "../model/order.model.js";
+import { cartModel } from "../model/cart.model.js";
 
 const cartRouter = express.Router();
 
-// get ou post?
-cartRouter.post("/login", async (req, res) => {
+//CREATE
+cartRouter.post("/checkout", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const createdCart = await cartModel.create(req.body);
 
-    const user = await UserModel.findOne({ email: email });
-
-    if (!user) {
-      return res
-        .status(404)
-        .json({ msg: "Please Sign up to proceed to Checkout" });
-    }
-
-    if (await bcrypt.compare(password, user.passwordHash)) {
-      const token = generateToken(user);
-
-      return res.status(200).json({
-        user: {
-          name: user.name,
-          email: user.email,
-          _id: user._id,
-          role: user.role,
-        },
-        // token: token,
-      });
-    } else {
-      return res.status(401).json({ msg: "Email ou senha invalidos." });
-    }
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.status(201).json(createdCart);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
   }
 });
 
-userRouter.get(isAuth, attachCurrentUser, async (req, res) => {
-  return res.status(200).json(req.currentCart);
+//READ
+cartRouter.get("/checkout", async (req, res) => {
+  try {
+    const allProducts = await cartModel.find();
+
+    return res.status(200).json(cart);
+  } catch (error) {
+    console.log(error);
+
+    return res.json(error);
+  }
 });
 
 export { cartRouter };

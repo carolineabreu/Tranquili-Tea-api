@@ -1,84 +1,64 @@
-import express from "express";
-import { generateToken } from "../config/jwt.config.js";
+import express, { json } from "express";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
-import { isAdmin } from "../middlewares/isAdmin.js";
-import { UserModel } from "../model/tea.model";
+import { UserModel } from "../model/user.model.js";
+import { TeaModel } from "../model/tea.model";
 
+const teaRouter = express.Router();
 
-const userRouter = express.Router();
-
-userRouter.post("/signup", async (req, res) => {
+teaRouter.post("/new-tea", isAuth, attachCurrentUser, async (req, res) => {
   try {
-    const { password } = req.body;
+    const loggedUser = req.currentUser;
 
-    if (
-      !password ||
-      !password.match(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm
-      )
-    ) {
-      return res.status(400).json({
-        msg: "Email ou senha invalidos. Verifique se ambos atendem as requisições.",
-      });
-    }
+    const tea = await TeaModel.create({
+       ...req.body, owner: loggedUser._id
+       });
 
-    const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    await TeaModel.findOneAndUpdate(
+      { _id: loggedUser._id },
+      { $push: { teas: tea._id } }
+    );
 
-    const hashedPassword = await bcrypt.hash(password, salt);
 
-    const createdUser = await UserModel.create({
-      ...req.body,
-      passwordHash: hashedPassword,
-    });
-
-    delete createdUser._doc.passwordHash;
-    return res.status(201).json(createdUser);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.status(201).json(tea);
+  } catch (erro) {
+    console.log(erro);
+    return res.status(500).json(erro);
   }
-});
-
-userRouter.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await UserModel.findOne({ email: email });
-
-    if (!user) {
-      return res.status(404).json({ msg: "Email ou senha invalidos." });
-    }
-
-    if (await bcrypt.compare(password, user.passwordHash)) {
-      const token = generateToken(user);
-
-      return res.status(200).json({
-        user: {
-          name: user.name,
-          email: user.email,
-          _id: user._id,
-          role: user.role,
-        },
-        token: token,
-      });
-    } else {
-      return res.status(401).json({ msg: "Email ou senha invalidos." });
-    }
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-});
-
-userRouter.get(
-  "/",
-  isAuth,
-  attachCurrentUser,
-  isAdmin,
-  async (req, res) => {
-    return res.status(200).json(req.currentUser);
-  }
+}
 );
 
-export { userRouter };
+teaRouter.get("/all", async (req, res) => {
+  try {
+    const teas = await TeaModel.find();
+
+    return res.status(200).json(teas);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json(error);
+  }
+});
+
+teaRouter.patch("/edit/:id", isAuth,
+ attachCurrentUser, async (req, res) => {
+  try {
+    const loggedUser = req.currentUser;
+    const tea = await TeaModel.findOne({ _id: 
+      req.params.id });
+    if (String(tea.owner) !== String(loggedUser._id)) {
+      return res.status(500).json({ msg: "you can't edit this" });
+    }
+    const editedTea = await TeaModel.findOneAndUpdate(
+      { _id: tea._id },
+      { ...req.body },
+      { new: true, runValidators: true }
+    );
+
+    return res.status(200).json(editedTea);
+  } catch (erro) {
+    console.log(erro);
+    return res.status(500).json(erro);
+  }
+});
+
+export { teaRouter };
