@@ -1,87 +1,74 @@
 import express from "express";
-import { generateToken } from "../config/jwt.config.js";
-//import isAuth from "../middlewares/isAuth.js";
-import attachCurrentUser from "../middlewares/attachCurrentUser.js";
-import { isAdmin } from "../middlewares/isAdmin.js";
-import { UserModel } from "../model/user.model.js";
+import { orderModel } from "../model/cart.model.js";
 
-import bcrypt from "bcrypt";
+const orderRouter = express.Router();
 
-const SALT_ROUNDS = 10;
-
-const userRouter = express.Router();
-
-userRouter.post("/signup", async (req, res) => {
+//CREATE
+orderRouter.post("/", async (req, res) => {
   try {
-    const { password } = req.body;
+    const createdOrder = await orderModel.create(req.body);
 
-    if (
-      !password ||
-      !password.match(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/gm
-      )
-    ) {
-      return res.status(400).json({
-        msg: "Email ou senha invalidos. Verifique se ambos atendem as requisições.",
-      });
-    }
-
-    const salt = await bcrypt.genSalt(SALT_ROUNDS);
-
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    const createdUser = await UserModel.create({
-      ...req.body,
-      passwordHash: hashedPassword,
-    });
-
-    delete createdUser._doc.passwordHash;
-    return res.status(201).json(createdUser);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.status(201).json(createdOrder);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
   }
 });
 
-userRouter.post("/login", async (req, res) => {
+//READ
+orderRouter.get("/", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const allOrders = await orderModel.find();
 
-    const user = await UserModel.findOne({ email: email });
+    return res.status(200).json(allOrders);
+  } catch (error) {
+    console.log(error);
 
-    if (!user) {
-      return res.status(404).json({ msg: "Email ou senha invalidos." });
-    }
-
-    if (await bcrypt.compare(password, user.passwordHash)) {
-      const token = generateToken(user);
-
-      return res.status(200).json({
-        user: {
-          name: user.name,
-          email: user.email,
-          _id: user._id,
-          role: user.role,
-        },
-        token: token,
-      });
-    } else {
-      return res.status(401).json({ msg: "Email ou senha invalidos." });
-    }
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.json(error);
   }
 });
 
-userRouter.get(
-  "/teste",
-  //  isAuth,
-  attachCurrentUser,
-  isAdmin,
-  async (req, res) => {
-    return res.status(200).json(req.currentUser);
-  }
-);
+//READ DETAILS
 
-export { userRouter };
+orderRouter.get("/:id", async (req, res) => {
+  try {
+    const order = await orderModel.findOne({ _id: req.params.id });
+
+    return res.status(200).json(order);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
+  }
+});
+
+//UPDATE
+
+orderRouter.put("/:id", async (req, res) => {
+  try {
+    const editProduct = await orderModel.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...req.body },
+      { new: true, runValidators: true }
+    );
+
+    return res.status(200).json(editOrder);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
+  }
+});
+
+//DELETE
+
+orderRouter.delete("/:id", async (req, res) => {
+  try {
+    const deletedProduct = await ProductModel.deleteOne({ _id: req.params.id });
+
+    return res.status(200).json(deletedOrder);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
+  }
+});
+
+export { orderRouter };

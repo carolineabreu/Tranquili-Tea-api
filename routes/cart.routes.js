@@ -1,44 +1,31 @@
 import express from "express";
-import isAuth from "../middlewares/isAuth.js";
-import attachCurrentUser from "../middlewares/attachCurrentUser.js";
-import { UserModel } from "../model/user.model.js";
 import { cartModel } from "../model/cart.model.js";
 
-const orderRouter = express.Router();
+const cartRouter = express.Router();
 
-//qualquer user . findAll()
-// como puxar o cart para dentro ?
-// data.push
-cartModel();
-
-orderRouter.post("/order", async (req, res, next) => {
+//CREATE
+cartRouter.post("/checkout", async (req, res) => {
   try {
-    data.push(currentCart);
+    const createdCart = await cartModel.create(req.body);
 
-    const { email, password } = req.body;
-    const user = await UserModel.findOne({ email: email });
-
-    if (!user) {
-      return res
-        .status(404)
-        .json({ msg: "Please Log in or Sign up to proceed to Checkout" })
-        .redirect("/signup");
-      next("/order:id");
-    } else {
-      return res.status(200).json(req.currentCart).redirect("/order:id");
-    }
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.status(201).json(createdCart);
+  } catch (error) {
+    console.log(error);
+    return res.json(error);
   }
 });
 
-orderRouter.get(isAuth, attachCurrentUser, async (req, res) => {
-  return res.status(200).json(req.currentCart).redirect("/order:id");
+//READ
+cartRouter.get("/checkout", async (req, res) => {
+  try {
+    const allProducts = await cartModel.find();
+
+    return res.status(200).json(cart);
+  } catch (error) {
+    console.log(error);
+
+    return res.json(error);
+  }
 });
 
-//UPDATE
-
-//DELETE
-
-export { orderRouter };
+export { cartRouter };
