@@ -4,6 +4,7 @@ import { connect } from "./config/db.config.js";
 import { userRouter } from "./routes/user.routes.js";
 import { forumRouter } from "./routes/forum.routes.js";
 import { commentRouter } from "./routes/comment.routes.js";
+import { teaRouter } from "./routes/tea.routes.js"
 import cors from "cors";
 
 dotenv.config();

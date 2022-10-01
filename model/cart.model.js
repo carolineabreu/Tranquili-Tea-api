@@ -7,7 +7,7 @@ const cartSchema = new Schema({
   ],
   totalPrice: { type: Number, required: true },
   zipCode: { type: Number },
-  dicountCoupons: { type: String },
+  discountCoupons: { type: String },
   // role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
 });
 
