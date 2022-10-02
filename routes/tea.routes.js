@@ -6,16 +6,16 @@ import { TeaModel } from "../model/tea.model.js";
 
 const teaRouter = express.Router();
 
-teaRouter.post("/new-tea", isAuth, attachCurrentUser, async (req, res) => {
+teaRouter.post("/new-tea", async (req, res) => {
   try {
     const loggedUser = req.currentUser;
 
     const tea = await TeaModel.create({
-      ...req.body,
-      owner: loggedUser._id,
-    });
 
-    await TeaModel.findOneAndUpdate(
+       ...req.body, user: loggedUser._id
+       });
+
+    await UserModel.findOneAndUpdate(
       { _id: loggedUser._id },
       { $push: { teas: tea._id } }
     );
@@ -41,9 +41,10 @@ teaRouter.get("/all", async (req, res) => {
 teaRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const loggedUser = req.currentUser;
-    const tea = await TeaModel.findOne({ _id: req.params.id });
-    if (String(tea.owner) !== String(loggedUser._id)) {
-      return res.status(500).json({ msg: "you can't edit this" });
+    const tea = await TeaModel.findOne({ _id: 
+      req.params.id });
+    if (String(tea.user) !== String(loggedUser._id)) {
+    return res.status(500).json({ msg: "you can't edit this" });
     }
     const editedTea = await TeaModel.findOneAndUpdate(
       { _id: tea._id },

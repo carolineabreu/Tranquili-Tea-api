@@ -1,0 +1,439 @@
+[
+    {
+    "name": "Lavender",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFbyPjIqZ3uqolWoR6E3W8WyITyQjBP_d-g&usqp=CAU"
+    ],
+    "description": "Lavender is a flowering plant in the mint family, with a great aroma and will help you to relax.",
+    "indication": [
+      "Stress",
+      "Anxiety"
+    ],
+    "origin": "Albania",
+    "brew": "5 minutes",
+    "temperature": "100°C",
+    "caffeine": false,
+    "flavour": "Floral notes with an earthy undertone.",
+    "ingredients": [
+      "Organic Lavender"
+    ]
+  },
+
+  {
+    "name": "Lemon Balm",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNl8B9FAzja1YPa7JVLaQ4-tVh7kGJO-gYVQ&usqp=CAU"
+    ],
+    "description": "Lemon balm belongs to the mint family, it has a calm effect, used historically for relieve the nervous tension.",
+  "indication": [
+      "Stress",
+      "Anxiety"
+    ],
+    "origin": "Southern Europe",
+    "brew": "3-5 minutes",
+    "temperature": "93°C || 200°F",
+    "caffeine": false,
+    "flavour": " Pleasantly mild, with subtle citrus notes.",
+    "ingredients": [
+        "Organic Lemon Balm"
+    ]
+  },
+  {
+    "name": "Schisandra",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkcz_X0kMsuClJof0c9DykNMIVEwLcQjjIWw&usqp=CAU"
+    ],
+    "description": "Schisandra berry hails from wild, lush, and mountainous regions throughout China, it has adaptogenic properties which helps the body resist anxiety and stress.",
+    "indication": [
+      "Anxiety",
+      "Stress",
+      "Moody"
+    ],
+    "origin": "China",
+    "brew": "5 minutes",
+    "temperature": "93°C || 200°F",
+    "caffeine": false,
+    "flavour": "Fruity with a uniquely quenching balance of five flavours: sweet, sour, salty, bitter, pungent. ",
+    "ingredients": [
+      "Organic Schisandra"
+    ]
+  },
+  {
+    "name": "Peppermint",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGztqawIe9Czep0s0m6PvxJ1kvsPFGJzz5VQ&usqp=CAU"
+    ],
+    "description": "The active ingredient in peppermint is menthol, which is said to stimulate passion and creativity.",
+    "indication": [
+      "Anxiety"
+    ],
+    "origin": "Pacific Northwest",
+    "brew": "1 minute",
+    "temperature": "95°C || 200°F",
+    "caffeine": false,
+    "flavour": "Fresh and cool minty flavour.",
+    "ingredients": [
+      "Organic Peppermint "
+    ]
+  },
+  {
+    "name": "St. John's Wort",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7IipKerc7yV9daIIxlUzYdZwGQahiKPpIw&usqp=CAU"
+    ],
+    "description": "St John's Wort tea is drunk for its calming nature, its leaves, flowers, and seeds can be used to make the tea.",
+    "indication": [
+      "Moody",
+      "Anxiety"
+    ],
+    "origin": "Bulgaria",
+    "brew": "7-10 minutes",
+    "temperature": "93°C || 200°F",
+    "caffeine": false,
+    "flavour": "Mild bitter and earthy.",
+    "ingredients": [
+      " Organic St. John's Wort"
+    ]
+  },
+  {
+    "name": "Valerian",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyOjP9HXuqfbv9A815IP6xSdu2VH-XFle4Yw&usqp=CAU"
+    ],
+    "description": "Valerian is a root and a herbal sedative, its name come from the Latin word 'valere' which essentially means 'to be well'.",
+    "indication": [
+      "Sleep",
+      "Moody"
+    ],
+    "origin": "Poland",
+    "brew": "5 minutes",
+    "temperature": "93°C || 200°F",
+    "caffeine": false,
+    "flavour": "Earthy and Minty.",
+    "ingredients": [
+      "Organic Valerian Root"
+    ]
+  },
+  {
+    "name": "Rooibos",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiKWT3kmWG_QWETUwNa7_ibAh9q3HPBjLLNw&usqp=CAU"
+    ],
+    "description": "Rooibos is made from the leaves of the Aspalathus linearis plant and is rich in antioxidants.",
+    "indication": [
+      "Moody" ],
+    "origin": "South Africa",
+    "brew": "5-6 minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": false,
+    "flavour": "Nutty and Earthy.",
+    "ingredients": [
+      "Organic Rooibos"
+    ]
+  },
+  {
+    "name": "Turmeric",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfbSxjCrs7Lnb5jGPuyz4AgefbpquCeRYS_g&usqp=CAU"
+    ],
+    "description": "Turmeric tea is made from the roots of the turmeric plant, and the main component in turmeric is curcumin.",
+    "indication": [
+      "Moody",
+      "Sleep"
+    ],
+    "origin": "India",
+    "brew": "4-5 minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": false,
+    "flavour": "Spicy and Earthy.",
+    "ingredients": [
+      "Organic Turmeric"
+    ]
+  },
+{
+  "name": "Matcha",
+  "image": [
+    "https://rishi-tea.com/product/image/medium/osg-sana_matcha-super-green-organic-loose-leaf-japanese-green-tea-blend.jpg"
+  ],
+  "description": "Stay focused, calm and energised with organic Matcha – the combo of caffeine and L-theanine buddy up to give you a slower, sustained release of energy without any jitters. Power on for longer with this super turbo energy tea!",
+  "indication": [
+    "Focus",
+    "Energy"
+  ],
+  "origin": "Japan",
+  "brew": "2-3 min",
+  "temperature":  "80°C ||(176°F)",
+  "caffeine": false,
+  "flavour": "Creamy, Sweet and Rich",
+"ingredients": [
+    "Organic Matcha"
+  ]
+},
+{
+    "name": "Green Tea",
+    "image": [
+      "https://www.shantitea.ca/images/uploads/product_images/5735/5735__medium.jpg"
+    ],
+    "description": "Allow this traditional tea of Japan to lift your spirits day or night with a fresh, clean yet subtly powerful brew. This Japanese Sencha is grassy green and oh so vibrant. Green tea is used to improve mental alertness and thinking",
+    "indication": [
+      "Focus",
+    "Energy" ],
+    "origin": "China",
+    "brew": "2 minutes",
+    "temperature": "85°C || 180°F",
+    "caffeine": true,
+    "flavour": "Spice and Sweet.",
+    "ingredients": [
+      "Organic Green Tea"
+    ]
+  },
+  {
+    "name": "Earl Grey",
+    "image": [
+      "https://cdn2.bigcommerce.com/server2800/59819/product_images/uploaded_images/earl-looseleaf-thumb.jpg"
+    ],
+    "description": "This quintessential English tea is filled with a variety of health benefits. Earl Grey tea is loaded with antioxidants and catechins that can help fight oral infections",
+    "indication": [
+      "Energy",
+      "Alertness"
+    ],
+    "origin": "China",
+    "brew": "4minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": true,
+    "flavour": "Smooth, Refreshing.",
+    "ingredients": [
+      "Black Tea"
+    ]
+  },
+  {
+    "name": "White Tea",
+    "image": [
+     "https://cdn2.bigcommerce.com/server2800/59819/product_images/uploaded_images/white-tea-2.jpg?t=1499908584"
+    ],
+    "description": "“White tea is rich in the amino acid l-theanine (almost as much as green tea), a compound that is associated with calm and improved focus.”",
+    "indication": [
+      "Focus",
+      "Energy"
+    ],
+    "origin": "China",
+    "brew": "2 minutes",
+    "temperature": "80°C || 276°F",
+    "caffeine": false,
+    "flavour": "Creamy, Sweet, Rich.",
+    "ingredients": [
+      "White Tea"
+    ]
+  },
+{
+  "name": "Holy Basil",
+  "image": [
+    "“https://i.etsystatic.com/9859922/r/il/de5461/3694889253/il_1588xN.3694889253_4vsr.jpg”"
+  ],
+  "description": "A soothing cup of tea with strong notes of fresh basil. Tulsi, or holy basil, is quite popular for its medicinal properties in Eastern part of the world. ",
+  "indication": [
+    "Focus",
+    "Energy"
+  ],
+  "origin": "India",
+  "brew": "5-10 min",
+  "temperature":  "80°C ||(175°F)",
+  "caffeine": false,
+  "flavour": "Sweet, Fruity",
+"ingredients": [
+    "Organic Tulsi"
+  ]
+},
+{
+    "name": "Chamomile",
+    "image": [
+      "https://www.justorganictea.com/wp-content/uploads/2021/02/chamomile-tea.jpg"
+    ],
+    "description": "Drinking this fresh, Pennsylvania-grown Chamomile Herbal Tea is like snuggling up on your couch with a warm blanket for some quiet relaxation time. Full-bodied floral aroma with hints of apple.",
+    "indication": [
+      "Relaxation",
+    "Sleep" ],
+    "origin": "Egypt",
+    "brew": "3-5 minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": false,
+    "flavour": "Sweet, fresh, and ethereal.",
+    "ingredients": [
+      "Chamomile Flower"
+    ]
+  },
+  {
+    "name": "Kanna",
+    "image": [
+      "https://psychonaut.ca/wp-content/uploads/2021/11/kanna-1.jpg"
+    ],
+    "description": "Kanna is an indigenous South African plant that's been used for centuries as an herbal remedy and natural mood booster.",
+    "indication": [
+      "Mood",
+      "Energy"
+    ],
+    "origin": "South Africa",
+    "brew": "5 minutes",
+    "temperature": "80°C || 176°F",
+    "caffeine": true,
+    "flavour": "Strong, Earthy.",
+    "ingredients": [
+      "Sceletium Tortuosum Plant "
+    ]
+  },
+  {
+    "name": "Rosemary",
+    "image": [
+     "https://www.shantitea.ca/images/uploads/product_images/5742/rosemary__large.jpg"
+    ],
+    "description": "Rich in vitamins, minerals and antioxidants, rosemary has been used for centuries as food and medicine. It aids in digestion, improves mental focus and keeps your brain sharp.",
+    "indication": [
+      "Focus",
+      "Energy"
+    ],
+    "origin": "Marocco",
+    "brew": "2-3 minutes",
+    "temperature": "80°C || 176°F",
+    "caffeine": false,
+    "flavour": "Light, Refreshing.",
+    "ingredients": [
+      "Rosemary Leaf"
+    ]
+  },
+{
+  "name": "Hop Tea",
+  "image": [
+   "https://m.media-amazon.com/images/I/91V-ynn1zBL._AC_SL1500_.jpg"
+  ],
+  "description": "Hop tea is made by pouring hot water over fresh or dried hop cones and allowing them to steep. It's great for a bedtime tea because of its sedative properties",
+  "indication": [
+    "Restlessness",
+    "Stress",
+    "Anxiety"
+  ],
+  "origin": "Europe",
+  "brew": "20-30 min",
+  "temperature":  "79°C || (174°F)",
+  "caffeine": true,
+  "flavour": "Citrus, fruity, minty",
+"ingredients": [
+    "Raw Hops"
+  ]
+},
+{
+    "name": "Passion Flower Tea",
+    "image": [
+      "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019_5/12231-drinks-series-passion_flower_tea-header-1296x728.jpg?w=1155&h=1528"
+    ],
+    "description": "Passionflower is a flowering type of vine that's been said to help with insomnia, anxiety, hot flashes, pain, and more. With over 500 known species of the plant, there's a lot of benefits to go around.",
+    "indication": [
+      "Anxiety",
+    "Stress",
+"Restlessness" ],
+    "origin": "The United States, Central and South America",
+    "brew": "6-8 minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": false,
+    "flavour": "Citric, fruity.",
+    "ingredients": [
+      "Dried passionflower"
+    ]
+  },
+  {
+    "name": "Masala Tea",
+    "image": [
+      "https://images.squarespace-cdn.com/content/v1/54621de1e4b0a816400a05b3/1602797372840-3KE2EIUTQIWY70N29VC4/20B7EC90-EA78-49D3-A745-665DFCBF91A1?format=2500w"
+    ],
+    "description": "Full-bodied black tea, made by boiling it in milk with a mixture of aromatic traditional Indian herbs and spices.",
+    "indication": [
+      "Stimulant",
+      "Antioxidant"
+    ],
+    "origin": "India",
+    "brew": "3 minutes",
+    "temperature": "100°C || 212°F",
+    "caffeine": true,
+    "flavour": "Spicy Ginger.",
+    "ingredients": [
+      "'Black Tea, Cinnamon, Cardamom, Ginger Root, Black Pepper, Cloves"
+    ]
+},
+{
+    "name": "Ginseg Tea",
+    "image": [
+      "https://goodtearesource.com/wp-content/uploads/2016/04/Ginseng-Oolong-tea.jpg"
+    ],
+    "description": "Ginseng has been used in Chinese medicine for hundreds of years to improve health. It has a strong, distinctly bitter flavour with earthy, warming notes.",
+    "indication": [
+      "Stress",
+      "Stimulant"
+    ],
+    "origin": "Korea, China",
+    "brew": "5 - 10 minutes",
+    "temperature": "96°C || 204°F",
+    "caffeine": false,
+    "flavour": "Bitter, Earthy.",
+    "ingredients": [
+      "GInseng Plant Root'"
+    ]
+},
+
+{
+    "name": "Ashwaganda Tea",
+    "image": [
+      "https://cdn.shopify.com/s/files/1/0080/8796/1698/products/7E8153B8-7783-48AF-848F-700A4736FECC_1200x.jpeg?v=1570236258"
+    ],
+    "description": "Traditionally used in African and Indian herbal medicine, this tea is believed to help the body cope with stress and improve brain function. It has an earthy, somewhat pungent, slightly creamy taste.",
+    "indication": [
+      "Stress",
+      "Restlessness"
+    ],
+    "origin": "India",
+    "brew": "3 - 5 minutes",
+    "temperature": "96°C || 204°F",
+    "caffeine": false,
+    "flavour": "Bitter, Earthy.",
+    "ingredients": [
+      "Pure Ashwagandha herb'"
+    ]
+},
+{
+    "name": "Oonlog Tea",
+    "image": [
+      "https://www.spiceandtea.com/media/catalog/product/cache/fb0a90b8e26ceb5370e874c9b332d3b2/s/k/sku-587_1.jpg"
+    ],
+    "description": "Floral and fruity at the same time, with a strong orange flavour, the Oolong tea is refreshing an tasty. It can also provide benefits to health including combating heart disease and diabetes.",
+    "indication": [
+      "Anxiety, Natural Tranquilizer",
+      "Antioxidant"
+    ],
+    "origin": "China",
+    "brew": "3 minutes",
+    "temperature": "95°C || 203°F",
+    "caffeine": true,
+    "flavour": "Bitter, Citric.",
+    "ingredients": [
+      "Camellia Sinensis, Orange blossom buds"
+    ]
+},
+{
+    "name": "Yerba Tea",
+    "image": [
+      "https://cdn.shopify.com/s/files/1/1512/5894/articles/AdobeStock_429385735_1000x.jpg?v=1647978749"
+    ],
+    "description": "Rich in antioxidants and nutrients, it can be made pure or with varied blends of flowers and fruits. The Yerba mate may be served cold or hot. its leaves and twigs are dried, typically over a fire, and steeped in hot water to make an herbal tea.",
+    "indication": [git
+      "Stimulant",
+      "Restlessness"
+    ],
+    "origin": "South America",
+    "brew": "5 minutes",
+    "temperature": "95°C || 203°F",
+    "caffeine": true,
+    "flavour": "Bitter, grassy",
+    "ingredients": [
+      "Yerba Mate"
+    ]
+}
+]
+
