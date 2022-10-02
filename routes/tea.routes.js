@@ -2,19 +2,19 @@ import express, { json } from "express";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { UserModel } from "../model/user.model.js";
-import { TeaModel } from "../model/tea.model";
+import { TeaModel } from "../model/tea.model.js";
 
 const teaRouter = express.Router();
 
-teaRouter.post("/new-tea", isAuth, attachCurrentUser, async (req, res) => {
+teaRouter.post("/new-tea", async (req, res) => {
   try {
     const loggedUser = req.currentUser;
 
     const tea = await TeaModel.create({
-       ...req.body, owner: loggedUser._id
+       ...req.body, user: loggedUser._id
        });
 
-    await TeaModel.findOneAndUpdate(
+    await UserModel.findOneAndUpdate(
       { _id: loggedUser._id },
       { $push: { teas: tea._id } }
     );
@@ -45,7 +45,7 @@ teaRouter.patch("/edit/:id", isAuth,
     const loggedUser = req.currentUser;
     const tea = await TeaModel.findOne({ _id: 
       req.params.id });
-    if (String(tea.owner) !== String(loggedUser._id)) {
+    if (String(tea.user) !== String(loggedUser._id)) {
       return res.status(500).json({ msg: "you can't edit this" });
     }
     const editedTea = await TeaModel.findOneAndUpdate(

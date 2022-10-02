@@ -9,4 +9,4 @@ const orderSchema = new Schema({
   endedAt: { type: Date, default: new Date() },
 });
 
-export const orderModel = model("Order", orderModel);
+export const orderModel = model("Order", orderSchema);
