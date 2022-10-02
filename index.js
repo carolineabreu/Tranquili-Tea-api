@@ -2,9 +2,11 @@ import express from "express";
 import * as dotenv from "dotenv";
 import { connect } from "./config/db.config.js";
 import { userRouter } from "./routes/user.routes.js";
-import { forumRouter } from "./routes/forum.routes.js";
-import { commentRouter } from "./routes/comment.routes.js";
-import { teaRouter } from "./routes/tea.routes.js"
+import { forumPostRouter } from "./routes/forumPost.routes.js";
+import { forumProfileRouter } from "./routes/forumProfile.routes.js";
+import { forumCommentRouter } from "./routes/forumComment.routes.js";
+import { reviewRouter } from "./routes/review.routes.js";
+import { teaRouter } from "./routes/tea.routes.js";
 import { cartRouter } from "./routes/cart.routes.js";
 import { orderRouter } from "./routes/order.routes.js";
 import cors from "cors";
@@ -20,13 +22,16 @@ app.use(express.json());
 const API_VERSION = "1.0";
 
 app.use(`/api/${API_VERSION}/user`, userRouter);
-app.use(`/api/${API_VERSION}/forum`, forumRouter);
-app.use(`/api/${API_VERSION}/comment`, commentRouter);
+
+app.use(`/api/${API_VERSION}/tea-room/post`, forumPostRouter);
+app.use(`/api/${API_VERSION}/tea-room/profile`, forumProfileRouter);
+app.use(`/api/${API_VERSION}/tea-room/comment`, forumCommentRouter);
 
 app.use(`/api/${API_VERSION}/cart`, cartRouter);
 app.use(`/api/${API_VERSION}/order`, orderRouter);
 
-app.use(`/api/${API_VERSION}/tea`, userRouter);
+app.use(`/api/${API_VERSION}/tea`, teaRouter);
+app.use(`/api/${API_VERSION}/review`, reviewRouter);
 
 app.listen(Number(process.env.PORT), () => {
   console.log(`Server up and running at port ${process.env.PORT}`);
