@@ -11,13 +11,12 @@ const userSchema = new Schema({
   },
   passwordHash: { type: String, required: true },
   username: { type: String, required: true, trim: true, unique: true },
-  role: { type: String, enum: ["ADMIN", "MOD", "USER"], default: "USER" },
+  role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
   createdAt: { type: Date, default: Date.now() },
   orders: { type: Schema.Types.ObjectId, ref: "Order" },
   comments: { type: Schema.Types.ObjectId, ref: "Comment" },
   teas: { type: Schema.Types.ObjectId, ref: "Tea" },
-  //references: { type: Schema.Types.ObjectId, refPath: ""}
-  //forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile" }
+  forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile" }
 });
 
 export const UserModel = model("User", userSchema);

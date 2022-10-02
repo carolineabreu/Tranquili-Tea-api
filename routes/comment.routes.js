@@ -1,70 +1,65 @@
 import express from "express";
-import { CommentModel } from "../model/comment.model.js";
+import { ReviewModel } from "../model/review.model.js";
 
-const commentRouter = express.Router();
+const reviewRouter = express.Router();
 
-commentRouter.post("/", async (req, res) => {
+reviewRouter.post("/", async (req, res) => {
   try {
-    const createdComment = await CommentModel.create({ ...req.body });
+    const createdReview = await ReviewModel.create({ ...req.body });
 
-    return res.status(201).json(createdComment);
+    return res.status(201).json(createdReview);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-commentRouter.get("/", async (req, res) => {
+reviewRouter.get("/", async (req, res) => {
   try {
-    const allComments = await CommentModel.find();
+    const allReviews = await ReviewModel.find();
 
-    return res.status(200).json(allComments);
+    return res.status(200).json(allReviews);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-/**
- * TODO:
- * - [] criar uma rota que pega todos os comentários pelo ID do chá para listar na página do chá
- */
-
-commentRouter.get("/:id", async (res, req) => {
+reviewRouter.get("/:id", async (res, req) => {
   try {
-    const comment = await CommentModel.findOne({ _id: req.params.id });
+    const review = await ReviewModel.findOne({ _id: req.params.id });
 
-    return res.status(200).json(comment);
+    return res.status(200).json(review);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-commentRouter.put("/:id", async (res, req) => {
+reviewRouter.put("/:id", async (res, req) => {
   try {
-    const editComment = await CommentModel.findOneAndUpdate(
+    const editReview = await ReviewModel.findOneAndUpdate(
       { _id: req.params.id },
       { ...req.body },
       { new: true, runValidators: true }
     );
 
-    return res.status(200).json(editComment);
+    return res.status(200).json(editReview);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-commentRouter.delete(":id", async (req, res) => {
+reviewRouter.delete(":id", async (req, res) => {
   try {
-    const deleteComment = await CommentModel.deleteOne({ _id: req.params.id });
+    const deleteReview = await ReviewModel.deleteOne({ _id: req.params.id });
 
-    return res.status(200).json(deleteComment);
+    return res.status(200).json(deleteReview);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-export { commentRouter };
+export { reviewRouter };

@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
-const forumSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+const forumPostSchema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: "ForumProfile" },
   title: { type: String, required: true, trim: true },
   body: { type: String, required: true },
   image: { type: String, trim: true },
@@ -12,4 +12,4 @@ const forumSchema = new Schema({
   favoriteTeas: { type: Schema.Types.ObjectId, ref: "Tea" },
 });
 
-export const ForumModel = model("Forum", forumSchema);
+export const ForumPostModel = model("ForumPost", forumPostSchema);
