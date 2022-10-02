@@ -9,7 +9,6 @@ const cartSchema = new Schema({
   zipCode: { type: Number },
   discountCoupons: { type: String },
   // role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
- 
 });
 
 export const cartModel = model("Cart", cartSchema);
