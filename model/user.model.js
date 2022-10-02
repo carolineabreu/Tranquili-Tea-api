@@ -14,7 +14,7 @@ const userSchema = new Schema({
   role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
   createdAt: { type: Date, default: Date.now() },
   orders: { type: Schema.Types.ObjectId, ref: "Order" },
-  comments: { type: Schema.Types.ObjectId, ref: "Comment" },
+  reviews: { type: Schema.Types.ObjectId, ref: "Review" },
   teas: { type: Schema.Types.ObjectId, ref: "Tea" },
   forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile" }
 });

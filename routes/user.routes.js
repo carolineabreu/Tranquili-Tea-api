@@ -81,7 +81,7 @@ userRouter.get(
   attachCurrentUser,
   async (req, res) => {
     const loggedUser = req.currentUser;
-    const userData = await UserModel.findOne({ _id: loggedUser._id }).populate("teas");
+    const userData = await UserModel.findOne({ _id: loggedUser._id }).populate("teas", "orders", "comments");
     return res.status(200).json(userData);
   }
 );
