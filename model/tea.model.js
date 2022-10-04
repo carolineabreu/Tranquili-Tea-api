@@ -9,9 +9,9 @@ const teaSchema = new Schema({
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFbyPjIqZ3uqolWoR6E3W8WyITyQjBP_d-g&usqp=CAU",
   },
   description: { type: String, required: true, minLength: 3},
-  indication: {
+  mood: {
     type: String,
-    enum: ["Focus", "Anxiety", "Moodiness", "Restless", "Stress", "Tiredness", "Alertness", "Relaxation", "Sleep", "Energy", "Stimulant", "Antioxidant"],
+    enum: ["Focused", "Anxious", "Moody", "Restless", "Stressed", "Tired"],
     required: true,
   },
   origin: { type: String, required: true },
@@ -21,7 +21,7 @@ const teaSchema = new Schema({
   flavour: { type: String, required: true },
   ingredients: { type: String, required: true },
   price: { type: Number, required: true },
-  review: { type: Schema.Types.ObjectId, ref: "Comment" },
+  reviews: { type: Schema.Types.ObjectId, ref: "Review" },
 });
 
 export const TeaModel = model("Tea", teaSchema);
