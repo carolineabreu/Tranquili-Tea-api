@@ -15,7 +15,7 @@ const userSchema = new Schema({
   orders: { type: Schema.Types.ObjectId, ref: "Order" },
   reviews: { type: Schema.Types.ObjectId, ref: "Review" },
   teas: { type: Schema.Types.ObjectId, ref: "Tea" },
-  forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile", unique: true }
+  forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile" }
 });
 
 export const UserModel = model("User", userSchema);
