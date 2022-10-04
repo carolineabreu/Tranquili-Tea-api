@@ -6,7 +6,7 @@ import { TeaModel } from "../model/tea.model.js";
 
 const teaRouter = express.Router();
 
-teaRouter.post("/new-tea", async (req, res) => {
+teaRouter.post("/new-tea", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const loggedUser = req.currentUser;
 
@@ -29,7 +29,7 @@ teaRouter.post("/new-tea", async (req, res) => {
 
 teaRouter.get("/all", async (req, res) => {
   try {
-    const teas = await TeaModel.find();
+    const teas = await TeaModel.find().populate("reviews");
 
     return res.status(200).json(teas);
   } catch (error) {
