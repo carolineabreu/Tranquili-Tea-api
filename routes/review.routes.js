@@ -1,9 +1,11 @@
 import express from "express";
 import { ReviewModel } from "../model/review.model.js";
+import isAuth from "../middlewares/isAuth.js";
+import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 
 const reviewRouter = express.Router();
 
-reviewRouter.post("/", async (req, res) => {
+reviewRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const createdReview = await ReviewModel.create({ ...req.body });
 
@@ -14,7 +16,7 @@ reviewRouter.post("/", async (req, res) => {
   }
 });
 
-reviewRouter.get("/", async (req, res) => {
+reviewRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const allReviews = await ReviewModel.find();
 
@@ -25,9 +27,10 @@ reviewRouter.get("/", async (req, res) => {
   }
 });
 
-reviewRouter.get("/:id", async (res, req) => {
+reviewRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
-    const review = await ReviewModel.findOne({ _id: req.params.id });
+    //FIXME:
+    const review = await ReviewModel.findOne({ _id: req.params.id }).populate("user", "tea");
 
     return res.status(200).json(review);
   } catch (err) {
@@ -36,7 +39,7 @@ reviewRouter.get("/:id", async (res, req) => {
   }
 });
 
-reviewRouter.put("/:id", async (res, req) => {
+reviewRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
     const editReview = await ReviewModel.findOneAndUpdate(
       { _id: req.params.id },
@@ -51,7 +54,7 @@ reviewRouter.put("/:id", async (res, req) => {
   }
 });
 
-reviewRouter.delete(":id", async (req, res) => {
+reviewRouter.delete("/delete/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const deleteReview = await ReviewModel.deleteOne({ _id: req.params.id });
 

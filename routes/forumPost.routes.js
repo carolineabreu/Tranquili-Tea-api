@@ -1,6 +1,5 @@
 import express from "express";
 import isAuth from "../middlewares/isAuth.js";
-import { isMod } from "../middlewares/isMod.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { ForumPostModel } from "../model/forumPost.model.js";
 import { UserModel } from "../model/user.model.js";
@@ -35,7 +34,7 @@ forumPostRouter.get(
   attachCurrentUser,
   async (req, res) => {
     try {
-      const allPosts = await ForumPostModel.find();
+      const allPosts = await ForumPostModel.find().populate("user", "comments");
 
       return res.status(200).json(allPosts);
     } catch (err) {
@@ -51,24 +50,8 @@ forumPostRouter.get(
   attachCurrentUser,
   async (res, req) => {
     try {
-      const post = await ForumPostModel.findOne({ _id: req.params.id });
-
-      return res.status(200).json(post);
-    } catch (err) {
-      console.log(err);
-      return res.status(500).json(err);
-    }
-  });
-
-// MODs tem acesso a todos os posts do forum por ID
-forumPostRouter.get(
-  "/mod/:id",
-  isAuth,
-  attachCurrentUser,
-  isMod,
-  async (res, req) => {
-    try {
-      const post = await ForumPostModel.findOne({ _id: req.params.id });
+      const loggedUser = req.currentUser;
+      const post = await ForumPostModel.findOne({ _id: loggedUser.id }).populate("user", "comments");
 
       return res.status(200).json(post);
     } catch (err) {
@@ -78,7 +61,7 @@ forumPostRouter.get(
   });
 
 forumPostRouter.put(
-  "/:id",
+  "/edit/:id",
   isAuth,
   attachCurrentUser,
   async (res, req) => {
@@ -103,7 +86,7 @@ forumPostRouter.put(
  * -[] se sobrar tempo colocar a opção de tanto o usuário poder deletar seu post, quando um MOD poder excluir algum post.
  */
 forumPostRouter.delete(
-  ":id",
+  "/delete/:id",
   isAuth,
   attachCurrentUser,
   async (req, res) => {

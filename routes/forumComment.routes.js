@@ -1,9 +1,11 @@
 import express from "express";
 import { ForumCommentModel } from "../model/forumComment.model.js";
+import isAuth from "../middlewares/isAuth.js";
+import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 
 const forumCommentRouter = express.Router();
 
-forumCommentRouter.post("/", async (req, res) => {
+forumCommentRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const comment = await ForumCommentModel.create({ ...req.body });
 
@@ -14,7 +16,7 @@ forumCommentRouter.post("/", async (req, res) => {
   }
 });
 
-forumCommentRouter.get("/", async (req, res) => {
+forumCommentRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const allComments = await ForumCommentModel.find();
 
@@ -25,9 +27,10 @@ forumCommentRouter.get("/", async (req, res) => {
   }
 });
 
-forumCommentRouter.get("/:id", async (res, req) => {
+forumCommentRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
-    const comment = await ForumCommentModel.findOne({ _id: req.params.id });
+    // FIXME:
+    const comment = await ForumCommentModel.findOne({ _id: req.params.id }).populate("user", "post");
 
     return res.status(200).json(comment);
   } catch (err) {
@@ -36,7 +39,7 @@ forumCommentRouter.get("/:id", async (res, req) => {
   }
 });
 
-forumCommentRouter.put("/:id", async (res, req) => {
+forumCommentRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
     const editComment = await ForumCommentModel.findOneAndUpdate(
       { _id: req.params.id },
@@ -51,7 +54,7 @@ forumCommentRouter.put("/:id", async (res, req) => {
   }
 });
 
-forumCommentRouter.delete(":id", async (req, res) => {
+forumCommentRouter.delete("/delete/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const deleteComment = await ForumCommentModel.deleteOne({ _id: req.params.id });
 

@@ -10,13 +10,12 @@ const userSchema = new Schema({
     match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gm,
   },
   passwordHash: { type: String, required: true },
-  username: { type: String, required: true, trim: true, unique: true },
   role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
   createdAt: { type: Date, default: Date.now() },
   orders: { type: Schema.Types.ObjectId, ref: "Order" },
   reviews: { type: Schema.Types.ObjectId, ref: "Review" },
   teas: { type: Schema.Types.ObjectId, ref: "Tea" },
-  forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile" }
+  forumProfile: { type: Schema.Types.ObjectId, ref: "ForumProfile", unique: true }
 });
 
 export const UserModel = model("User", userSchema);
