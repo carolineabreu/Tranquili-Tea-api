@@ -1,14 +1,15 @@
 import { Schema, model } from "mongoose";
 
 const cartSchema = new Schema({
-  // products: [
-  //   (quantity = { type: Number, required: true }),
-  //   (price = { type: Number, required: true }),
-  // ],
-  totalPrice: { type: Number, required: true },
+  cart: {
+    teas: { type: Schema.Types.ObjectId, ref: "Product" },
+    quantity: { type: Number, required: true },
+    price: { type: Number, required: true },
+    totalPrice: { type: Number, required: true },
+  },
   zipCode: { type: Number },
   discountCoupons: { type: String },
-  // role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
+  paymentMethod: { type: String },
 });
 
 export const cartModel = model("Cart", cartSchema);
