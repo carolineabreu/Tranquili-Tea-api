@@ -30,8 +30,6 @@ forumPostRouter.post(
 
 forumPostRouter.get(
   "/all",
-  isAuth,
-  attachCurrentUser,
   async (req, res) => {
     try {
       const allPosts = await ForumPostModel.find().populate("user", "comments");
@@ -46,8 +44,6 @@ forumPostRouter.get(
 
 forumPostRouter.get(
   "/:id",
-  isAuth,
-  attachCurrentUser,
   async (res, req) => {
     try {
       const loggedUser = req.currentUser;
