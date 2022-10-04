@@ -2,6 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import { connect } from "./config/db.config.js";
 import { userRouter } from "./routes/user.routes.js";
+import { uploadImgRouter } from "./routes/uploadImage.routes.js";
 import { forumPostRouter } from "./routes/forumPost.routes.js";
 import { forumProfileRouter } from "./routes/forumProfile.routes.js";
 import { forumCommentRouter } from "./routes/forumComment.routes.js";
@@ -22,6 +23,7 @@ app.use(express.json());
 const API_VERSION = "1.0";
 
 app.use(`/api/${API_VERSION}/user`, userRouter);
+app.use(`/api/${API_VERSION}/uploadImage`, uploadImgRouter);
 
 app.use(`/api/${API_VERSION}/tea-room/post`, forumPostRouter);
 app.use(`/api/${API_VERSION}/tea-room/profile`, forumProfileRouter);
