@@ -11,12 +11,13 @@
     ],
     "origin": "Albania",
     "brew": "5 minutes",
-    "temperature": "100°C",
+    "temperature": 100,
     "caffeine": false,
     "flavour": "Floral notes with an earthy undertone.",
     "ingredients": [
       "Organic Lavender"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Lemon Balm",
@@ -30,12 +31,13 @@
     ],
     "origin": "Southern Europe",
     "brew": "3-5 minutes",
-    "temperature": "93°C || 200°F",
+    "temperature": "93",
     "caffeine": false,
     "flavour": " Pleasantly mild, with subtle citrus notes.",
     "ingredients": [
       "Organic Lemon Balm"
-    ]
+    ],
+    "price": 7.98
   },
   {
     "name": "Schisandra",
@@ -50,12 +52,13 @@
     ],
     "origin": "China",
     "brew": "5 minutes",
-    "temperature": "93°C || 200°F",
+    "temperature": "93",
     "caffeine": false,
     "flavour": "Fruity with a uniquely quenching balance of five flavours: sweet, sour, salty, bitter, pungent. ",
     "ingredients": [
       "Organic Schisandra"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Peppermint",
@@ -68,12 +71,13 @@
     ],
     "origin": "Pacific Northwest",
     "brew": "1 minute",
-    "temperature": "95°C || 200°F",
+    "temperature": 95,
     "caffeine": false,
     "flavour": "Fresh and cool minty flavour.",
     "ingredients": [
       "Organic Peppermint "
-    ]
+    ],
+    "price": 8.98
   },
   {
     "name": "St. John's Wort",
@@ -87,12 +91,13 @@
     ],
     "origin": "Bulgaria",
     "brew": "7-10 minutes",
-    "temperature": "93°C || 200°F",
+    "temperature": 93,
     "caffeine": false,
     "flavour": "Mild bitter and earthy.",
     "ingredients": [
       " Organic St. John's Wort"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Valerian",
@@ -106,12 +111,13 @@
     ],
     "origin": "Poland",
     "brew": "5 minutes",
-    "temperature": "93°C || 200°F",
+    "temperature": 93,
     "caffeine": false,
     "flavour": "Earthy and Minty.",
     "ingredients": [
       "Organic Valerian Root"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Rooibos",
@@ -124,12 +130,13 @@
     ],
     "origin": "South Africa",
     "brew": "5-6 minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": 100,
     "caffeine": false,
     "flavour": "Nutty and Earthy.",
     "ingredients": [
       "Organic Rooibos"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Turmeric",
@@ -143,12 +150,13 @@
     ],
     "origin": "India",
     "brew": "4-5 minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": 100,
     "caffeine": false,
     "flavour": "Spicy and Earthy.",
     "ingredients": [
       "Organic Turmeric"
-    ]
+    ],
+    "price": 6.98
   },
   {
     "name": "Matcha",
@@ -162,12 +170,13 @@
     ],
     "origin": "Japan",
     "brew": "2-3 min",
-    "temperature": "80°C ||(176°F)",
+    "temperature": 80,
     "caffeine": false,
     "flavour": "Creamy, Sweet and Rich",
     "ingredients": [
       "Organic Matcha"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Green Tea",
@@ -181,12 +190,13 @@
     ],
     "origin": "China",
     "brew": "2 minutes",
-    "temperature": "85°C || 180°F",
+    "temperature": 85,
     "caffeine": true,
     "flavour": "Spice and Sweet.",
     "ingredients": [
       "Organic Green Tea"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Earl Grey",
@@ -200,12 +210,13 @@
     ],
     "origin": "China",
     "brew": "4minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": "100",
     "caffeine": true,
     "flavour": "Smooth, Refreshing.",
     "ingredients": [
       "Black Tea"
-    ]
+    ],
+    "price": 8.98
   },
   {
     "name": "White Tea",
@@ -219,12 +230,13 @@
     ],
     "origin": "China",
     "brew": "2 minutes",
-    "temperature": "80°C || 276°F",
+    "temperature": 80,
     "caffeine": false,
     "flavour": "Creamy, Sweet, Rich.",
     "ingredients": [
       "White Tea"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Holy Basil",
@@ -238,12 +250,13 @@
     ],
     "origin": "India",
     "brew": "5-10 min",
-    "temperature": "80°C ||(175°F)",
+    "temperature": 80,
     "caffeine": false,
     "flavour": "Sweet, Fruity",
     "ingredients": [
       "Organic Tulsi"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Chamomile",
@@ -256,12 +269,13 @@
     ],
     "origin": "Egypt",
     "brew": "3-5 minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": 100,
     "caffeine": false,
     "flavour": "Sweet, fresh, and ethereal.",
     "ingredients": [
       "Chamomile Flower"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Kanna",
@@ -275,12 +289,13 @@
     ],
     "origin": "South Africa",
     "brew": "5 minutes",
-    "temperature": "80°C || 176°F",
+    "temperature": 80,
     "caffeine": true,
     "flavour": "Strong, Earthy.",
     "ingredients": [
       "Sceletium Tortuosum Plant "
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Rosemary",
@@ -294,12 +309,13 @@
     ],
     "origin": "Marocco",
     "brew": "2-3 minutes",
-    "temperature": "80°C || 176°F",
+    "temperature": 80,
     "caffeine": false,
     "flavour": "Light, Refreshing.",
     "ingredients": [
       "Rosemary Leaf"
-    ]
+    ],
+    "price": 9.98
   },
   {
     "name": "Hop Tea",
@@ -314,12 +330,13 @@
     ],
     "origin": "Europe",
     "brew": "20-30 min",
-    "temperature": "79°C || (174°F)",
+    "temperature": 79,
     "caffeine": true,
     "flavour": "Citrus, fruity, minty",
     "ingredients": [
       "Raw Hops"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Passion Flower Tea",
@@ -334,12 +351,13 @@
     ],
     "origin": "The United States, Central and South America",
     "brew": "6-8 minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": 100,
     "caffeine": false,
     "flavour": "Citric, fruity.",
     "ingredients": [
       "Dried passionflower"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Masala Tea",
@@ -352,12 +370,13 @@
     ],
     "origin": "India",
     "brew": "3 minutes",
-    "temperature": "100°C || 212°F",
+    "temperature": 100,
     "caffeine": true,
     "flavour": "Spicy Ginger.",
     "ingredients": [
       "'Black Tea, Cinnamon, Cardamom, Ginger Root, Black Pepper, Cloves"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Ginseg Tea",
@@ -371,12 +390,13 @@
     ],
     "origin": "Korea, China",
     "brew": "5 - 10 minutes",
-    "temperature": "96°C || 204°F",
+    "temperature": 96,
     "caffeine": false,
     "flavour": "Bitter, Earthy.",
     "ingredients": [
       "GInseng Plant Root'"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Ashwaganda Tea",
@@ -390,12 +410,13 @@
     ],
     "origin": "India",
     "brew": "3 - 5 minutes",
-    "temperature": "96°C || 204°F",
+    "temperature": 96,
     "caffeine": false,
     "flavour": "Bitter, Earthy.",
     "ingredients": [
       "Pure Ashwagandha herb'"
-    ]
+    ], 
+    "price": 10.98
   },
   {
     "name": "Oonlog Tea",
@@ -408,12 +429,13 @@
     ],
     "origin": "China",
     "brew": "3 minutes",
-    "temperature": "95°C || 203°F",
+    "temperature": 95,
     "caffeine": true,
     "flavour": "Bitter, Citric.",
     "ingredients": [
       "Camellia Sinensis, Orange blossom buds"
-    ]
+    ],
+    "price": 10.98
   },
   {
     "name": "Yerba Tea",
@@ -426,11 +448,31 @@
     ],
     "origin": "South America",
     "brew": "5 minutes",
-    "temperature": "95°C || 203°F",
+    "temperature": 95,
     "caffeine": true,
     "flavour": "Bitter, grassy",
     "ingredients": [
       "Yerba Mate"
-    ]
+    ],
+    "price": 10.98
+  },
+  {
+    "name": "Kana Tea",
+    "image": [
+      "https://cdn.shopify.com/s/files/1/1512/5894/articles/AdobeStock_429385735_1000x.jpg?v=1647978749"
+    ],
+    "description": "Kanna is an indigenous South African plant that's been used for centuries as an herbal remedy and natural mood booster",
+    "category": [
+      "Energy"
+    ],
+    "origin": "South Africa",
+    "brew": "5 minutes",
+    "temperature": 80,
+    "caffeine": true,
+    "flavour": "Strong, Earthy",
+    "ingredients": [
+      "Organic Kana leaves"
+    ],
+    "price": 10.98
   }
 ]
