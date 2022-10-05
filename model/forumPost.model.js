@@ -1,13 +1,12 @@
 import { Schema, model } from "mongoose";
 
 const forumPostSchema = new Schema({
-  owner: { type: Schema.Types.ObjectId, ref: "ForumProfile" },
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
   title: { type: String, required: true, trim: true, minLength: 10, maxLength: 200 },
   body: { type: String, required: true },
-  picture: { type: String, trim: true },
   createdAt: { type: Date, default: Date.now() },
-  tag: { type: String, required: true, enum: ["Question", "Recommendation", "Photo", "Review", "Discussion"] },
-  likes: { type: Schema.Types.ObjectId, ref: "ForumProfile" },
+  tag: { type: String, required: true, enum: ["Question", "Recommendation", "Blog", "Review", "Discussion"] },
+  likes: { type: Schema.Types.ObjectId, ref: "User" },
   comments: { type: Schema.Types.ObjectId, ref: "ForumComment" }
 });
 

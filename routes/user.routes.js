@@ -79,8 +79,11 @@ userRouter.get(
   isAuth,
   attachCurrentUser,
   async (req, res) => {
+
     const loggedUser = req.currentUser;
-    const userData = await UserModel.findOne({ _id: loggedUser._id }).populate("teas", "orders", "reviews", "forumProfile");
+
+    const userData = await UserModel.findOne({ _id: loggedUser._id }).populate("teas").populate("orders").populate("reviews").populate("posts").populate("comments");
+
     return res.status(200).json(userData);
   }
 );

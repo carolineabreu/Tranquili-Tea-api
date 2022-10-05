@@ -18,7 +18,7 @@ forumPostRouter.post(
 
       await UserModel.findOneAndUpdate(
         { _id: loggedUser._id },
-        { $push: {} }
+        { $push: { posts: post._id } }
       );
 
       return res.status(201).json(post);
@@ -28,11 +28,24 @@ forumPostRouter.post(
     }
   });
 
+forumPostRouter.get("/my-posts", isAuth, attachCurrentUser, async (req, res) => {
+  try {
+    const loggedInUser = req.currentUser;
+    const userPosts = await ForumPostModel.find(
+      { owner: loggedInUser._id },
+    );
+    return res.status(200).json(userPosts);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json(error);
+  }
+});
+
 forumPostRouter.get(
   "/all",
   async (req, res) => {
     try {
-      const allPosts = await ForumPostModel.find().populate("user", "comments");
+      const allPosts = await ForumPostModel.find().populate("owner").populate("comments");
 
       return res.status(200).json(allPosts);
     } catch (err) {
@@ -42,19 +55,16 @@ forumPostRouter.get(
   });
 
 
-forumPostRouter.get(
-  "/:id",
-  async (res, req) => {
-    try {
-      const loggedUser = req.currentUser;
-      const post = await ForumPostModel.findOne({ _id: loggedUser.id }).populate("user", "comments");
+forumPostRouter.get("/:id", async (req, res) => {
+  try {
+    const post = await ForumPostModel.findOne({ _id: req.params.id });
 
-      return res.status(200).json(post);
-    } catch (err) {
-      console.log(err);
-      return res.status(500).json(err);
-    }
-  });
+    return res.status(200).json(post);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
 
 forumPostRouter.put(
   "/edit/:id",
