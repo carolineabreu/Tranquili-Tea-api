@@ -4,7 +4,7 @@ const forumPostSchema = new Schema({
   owner: { type: Schema.Types.ObjectId, ref: "ForumProfile" },
   title: { type: String, required: true, trim: true, minLength: 10, maxLength: 200 },
   body: { type: String, required: true },
-  image: { type: String, trim: true },
+  picture: { type: String, trim: true },
   createdAt: { type: Date, default: Date.now() },
   tag: { type: String, required: true, enum: ["Question", "Recommendation", "Photo", "Review", "Discussion"] },
   likes: { type: Schema.Types.ObjectId, ref: "ForumProfile" },
