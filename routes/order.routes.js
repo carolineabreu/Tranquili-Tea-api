@@ -1,74 +1,68 @@
 import express from "express";
 import { orderModel } from "../model/order.model.js";
+import isAuth from "../middlewares/isAuth.js";
+import attachCurrentUser from "../middlewares/attachCurrentUser.js";
+import { UserModel } from "../model/user.model.js";
 
 const orderRouter = express.Router();
 
-//CREATE
+//Create
 orderRouter.post("/", async (req, res) => {
   try {
-    const createdOrder = await orderModel.create(req.body);
+    const createdOrder = await orderModel.create({ ...req.body });
 
     return res.status(201).json(createdOrder);
-  } catch (error) {
-    console.log(error);
-    return res.json(error);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
-//READ
-orderRouter.get("/", async (req, res) => {
+//Read
+orderRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
   try {
+    const loggedUser = req.currentUser;
+    await UserModel.findOne({ id: loggedUser._id });
+
     const allOrders = await orderModel.find();
 
     return res.status(200).json(allOrders);
-  } catch (error) {
-    console.log(error);
-
-    return res.json(error);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
-//READ DETAILS
-
-orderRouter.get("/:id", async (req, res) => {
+//Read Details
+orderRouter.get("/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
+    const loggedUser = req.currentUser;
+    await UserModel.findOne({ _id: loggedUser._id });
+
     const order = await orderModel.findOne({ _id: req.params.id });
 
     return res.status(200).json(order);
-  } catch (error) {
-    console.log(error);
-    return res.json(error);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
-//UPDATE
+//Delete
+orderRouter.delete(
+  "/delete/:id",
+  isAuth,
+  attachCurrentUser,
+  async (req, res) => {
+    try {
+      const deletedOrder = await OrderModel.deleteOne({ _id: req.params.id });
 
-orderRouter.put("/:id", async (req, res) => {
-  try {
-    const editProduct = await orderModel.findOneAndUpdate(
-      { _id: req.params.id },
-      { ...req.body },
-      { new: true, runValidators: true }
-    );
-
-    return res.status(200).json(editOrder);
-  } catch (error) {
-    console.log(error);
-    return res.json(error);
+      return res.status(200).json(deletedOrder);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
   }
-});
-
-//DELETE
-
-orderRouter.delete("/:id", async (req, res) => {
-  try {
-    const deletedProduct = await ProductModel.deleteOne({ _id: req.params.id });
-
-    return res.status(200).json(deletedOrder);
-  } catch (error) {
-    console.log(error);
-    return res.json(error);
-  }
-});
+);
 
 export { orderRouter };
