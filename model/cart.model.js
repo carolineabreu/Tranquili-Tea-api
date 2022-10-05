@@ -9,7 +9,7 @@ const cartSchema = new Schema({
   },
   zipCode: { type: Number },
   discountCoupons: { type: String },
-  paymentMethod: { type: String },
+  paymentMethod: { type: String, required: true },
 });
 
 export const cartModel = model("Cart", cartSchema);
