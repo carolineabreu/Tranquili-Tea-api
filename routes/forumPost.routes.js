@@ -28,7 +28,7 @@ forumPostRouter.post(
     }
   });
 
-forumPostRouter.get("/my-posts", isAuth, attachCurrentUser, async (req, res) => {
+forumPostRouter.get("/all-posts", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const loggedInUser = req.currentUser;
     const userPosts = await ForumPostModel.find(
