@@ -12,8 +12,8 @@ teaRouter.post("/new-tea", isAuth, attachCurrentUser, async (req, res) => {
 
     const tea = await TeaModel.create({
 
-       ...req.body, user: loggedUser._id
-       });
+      ...req.body, user: loggedUser._id
+    });
 
     await UserModel.findOneAndUpdate(
       { _id: loggedUser._id },
@@ -38,13 +38,26 @@ teaRouter.get("/all", async (req, res) => {
   }
 });
 
+teaRouter.get("/:id", async (req, res) => {
+  try {
+    const tea = await TeaModel.findOne({ _id: req.params.id }).populate("reviews");
+
+    return res.status(200).json(tea);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+
 teaRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const loggedUser = req.currentUser;
-    const tea = await TeaModel.findOne({ _id: 
-      req.params.id });
+    const tea = await TeaModel.findOne({
+      _id:
+        req.params.id
+    });
     if (String(tea.user) !== String(loggedUser._id)) {
-    return res.status(500).json({ msg: "you can't edit this" });
+      return res.status(500).json({ msg: "you can't edit this" });
     }
     const editedTea = await TeaModel.findOneAndUpdate(
       { _id: tea._id },

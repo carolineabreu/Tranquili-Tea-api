@@ -2,7 +2,6 @@ import express from "express";
 import { generateToken } from "../config/jwt.config.js";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
-import { isAdmin } from "../middlewares/isAdmin.js";
 import { UserModel } from "../model/user.model.js";
 
 import bcrypt from "bcrypt";
@@ -88,5 +87,23 @@ userRouter.get(
   }
 );
 
+userRouter.patch("/edit-profile", isAuth, attachCurrentUser, async (req, res) => {
+  try {
+    const loggedInUser = req.currentUser;
+
+    const updatedUser = await UserModel.findOneAndUpdate(
+      { _id: loggedInUser._id },
+      { ...req.body },
+      { runValidators: true, new: true }
+    );
+
+    delete updatedUser._doc.passwordHash;
+
+    return res.status(200).json(updatedUser);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json(error);
+  }
+});
 
 export { userRouter };
