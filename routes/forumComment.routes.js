@@ -1,7 +1,9 @@
 import express from "express";
-import { ForumCommentModel } from "../model/forumComment.model.js";
+
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
+
+import { ForumCommentModel } from "../model/forumComment.model.js";
 import { UserModel } from "../model/user.model.js";
 import { ForumPostModel } from "../model/forumPost.model.js";
 
@@ -56,7 +58,7 @@ forumCommentRouter.get(
       const loggedInUser = req.currentUser;
       const userComments = await ForumCommentModel.find(
         { owner: loggedInUser._id },
-      );
+      ).populate("post").populate("owner");
       return res.status(200).json(userComments);
     } catch (error) {
       console.error(error);

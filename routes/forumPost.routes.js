@@ -37,7 +37,7 @@ forumPostRouter.get(
       const loggedInUser = req.currentUser;
       const userPosts = await ForumPostModel.find(
         { owner: loggedInUser._id },
-      );
+      ).populate("comments");
       return res.status(200).json(userPosts);
     } catch (error) {
       console.error(error);
