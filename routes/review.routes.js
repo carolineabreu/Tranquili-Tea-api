@@ -39,7 +39,7 @@ reviewRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
   }
 });
 
-reviewRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
+reviewRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
     const editReview = await ReviewModel.findOneAndUpdate(
       { _id: req.params.id },

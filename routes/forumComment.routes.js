@@ -2,12 +2,26 @@ import express from "express";
 import { ForumCommentModel } from "../model/forumComment.model.js";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
+import { UserModel } from "../model/user.model.js";
+import { ForumPostModel } from "../model/forumPost.model.js";
 
 const forumCommentRouter = express.Router();
 
-forumCommentRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
+forumCommentRouter.post("/:postId/create", isAuth, attachCurrentUser, async (req, res) => {
   try {
-    const comment = await ForumCommentModel.create({ ...req.body });
+    const { postId } = req.params;
+    const loggedUser = req.currentUser;
+    const comment = await ForumCommentModel.create({ ...req.body, owner: loggedUser._id, post: postId });
+
+    await UserModel.findOneAndUpdate(
+      { _id: loggedUser._id },
+      { $push: { comments: comment } }
+    );
+
+    await ForumPostModel.findOneAndUpdate(
+      { _id: postId },
+      { $push: { comments: comment } }
+    );
 
     return res.status(201).json(comment);
   } catch (err) {
@@ -16,9 +30,15 @@ forumCommentRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
   }
 });
 
-forumCommentRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
+forumCommentRouter.get("/:postId/all", async (req, res) => {
   try {
-    const allComments = await ForumCommentModel.find();
+    const { postId } = req.params;
+
+    const comments = await ForumPostModel.findOne({ _id: postId })
+      .populate("comments")
+      .populate("owner");
+
+    const allComments = await ForumCommentModel.find({ post: postId }).populate("owner");
 
     return res.status(200).json(allComments);
   } catch (err) {
@@ -27,22 +47,30 @@ forumCommentRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
   }
 });
 
-forumCommentRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
-  try {
-    // FIXME:
-    const comment = await ForumCommentModel.findOne({ _id: req.params.id }).populate("user", "post");
+forumCommentRouter.get(
+  "/all-comments",
+  isAuth,
+  attachCurrentUser,
+  async (req, res) => {
+    try {
+      const loggedInUser = req.currentUser;
+      const userComments = await ForumCommentModel.find(
+        { owner: loggedInUser._id },
+      );
+      return res.status(200).json(userComments);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json(error);
+    }
+  });
 
-    return res.status(200).json(comment);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
-});
-
-forumCommentRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
+forumCommentRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
   try {
+    const { id } = req.params;
+    const comment = await CommentModel.findOne({ _id: id });
+
     const editComment = await ForumCommentModel.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: comment._id },
       { ...req.body },
       { new: true, runValidators: true }
     );
