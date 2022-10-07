@@ -6,8 +6,7 @@ const forumPostSchema = new Schema({
   body: { type: String, required: true },
   createdAt: { type: Date, default: Date.now() },
   tag: { type: String, required: true, enum: ["Question", "Recommendation", "Blog", "Review", "Discussion"] },
-  likes: { type: Schema.Types.ObjectId, ref: "User" },
-  comments: { type: Schema.Types.ObjectId, ref: "ForumComment" }
+  comments: [{ type: Schema.Types.ObjectId, ref: "ForumComment" }]
 });
 
 export const ForumPostModel = model("ForumPost", forumPostSchema);

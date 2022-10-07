@@ -1,10 +1,10 @@
 import { model, Schema } from "mongoose";
 
 const ForumCommentSchema = new Schema({
-  owner: { type: Schema.Types.ObjectId, ref: "User" },
-  post: { type: Schema.Types.ObjectId, ref: "ForumPost" },
+  owner: { type: Schema.Types.ObjectId, ref: "User", trim: true },
+  post: { type: Schema.Types.ObjectId, ref: "ForumPost", trim: true },
   createdAt: { type: Date, default: Date.now() },
-  body: { type: String, required: true, trim: true },
+  comment: { type: String, required: true },
 });
 
 export const ForumCommentModel = model("ForumComment", ForumCommentSchema);
