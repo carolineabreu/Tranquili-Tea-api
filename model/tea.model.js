@@ -2,13 +2,13 @@ import { Schema, model } from "mongoose";
 
 const teaSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  name: {type: String, trim:true, required:true},
-  teaPicture: {
+  name: { type: String, trim: true, required: true },
+  image: {
     type: String,
     default:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFbyPjIqZ3uqolWoR6E3W8WyITyQjBP_d-g&usqp=CAU",
   },
-  description: { type: String, required: true, minLength: 3},
+  description: { type: String, required: true, minLength: 3 },
   mood: {
     type: String,
     enum: ["Focused", "Anxious", "Moody", "Restless", "Stressed", "Tired"],
