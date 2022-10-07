@@ -59,9 +59,10 @@ forumPostRouter.get(
   });
 
 
-forumPostRouter.get("/:id", async (req, res) => {
+forumPostRouter.get("/:postId", async (req, res) => {
   try {
-    const post = await ForumPostModel.findOne({ _id: req.params.id });
+    const { postId } = req.params;
+    const post = await ForumPostModel.findOne({ _id: postId }).populate("owner").populate("comments");
 
     return res.status(200).json(post);
   } catch (err) {
@@ -70,7 +71,7 @@ forumPostRouter.get("/:id", async (req, res) => {
   }
 });
 
-forumPostRouter.put(
+forumPostRouter.patch(
   "/edit/:id",
   isAuth,
   attachCurrentUser,

@@ -91,7 +91,7 @@ cartRouter.get("/:id", async (req, res) => {
 });
 
 //Edit
-cartRouter.put("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
+cartRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const editedCart = await cartModel.findOneAndUpdate(
       { _id: req.params.id },
