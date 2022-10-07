@@ -1,5 +1,5 @@
 import express from "express";
-import { orderModel } from "../model/order.model.js";
+import { OrderModel } from "../model/order.model.js";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 import { UserModel } from "../model/user.model.js";
@@ -7,9 +7,16 @@ import { UserModel } from "../model/user.model.js";
 const orderRouter = express.Router();
 
 //Create
-orderRouter.post("/", async (req, res) => {
+orderRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
   try {
-    const createdOrder = await orderModel.create({ ...req.body });
+    const { teaId } = req.params;
+    const loggedUser = req.currentUser;
+    const createdOrder = await OrderModel.create({ ...req.body, user: loggedUser._id, teas: teaId });
+
+    await UserModel.findOneAndUpdate(
+      { _id: loggedUser._id },
+      { $push: { orders: createdOrder } }
+    );
 
     return res.status(201).json(createdOrder);
   } catch (err) {
@@ -19,32 +26,70 @@ orderRouter.post("/", async (req, res) => {
 });
 
 //Read
-orderRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
+orderRouter.get("/all-orders", isAuth, attachCurrentUser, async (req, res) => {
+  const owner = req.user._id;
   try {
-    const loggedUser = req.currentUser;
-    await UserModel.findOne({ id: loggedUser._id });
+    const order = await OrderModel.find({ owner: owner }).sort({ date: -1 });
+    if (order) {
+      return res.status(200).send(order);
+    }
+    res.status(404).send("No orders found");
+  } catch (error) {
+    res.status(500).send();
+  }
+});
 
-    const allOrders = await orderModel.find();
+//Read Details
+orderRouter.get("/:id", async (req, res) => {
+  try {
+    const order = await OrderModel.findOne({ _id: req.params.id }).populate("user");
 
-    return res.status(200).json(allOrders);
+    return res.status(200).json(order);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
   }
 });
 
-//Read Details
-orderRouter.get("/:id", isAuth, attachCurrentUser, async (req, res) => {
+orderRouter.get(
+  "/:id/all-orders",
+  isAuth,
+  attachCurrentUser,
+  async (req, res) => {
+    try {
+      const loggedUser = req.currentUser;
+
+      const orders = await OrderModel.find(
+        { user: loggedUser._id },
+      );
+
+      return res.status(200).json(orders);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  });
+
+orderRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const loggedUser = req.currentUser;
-    await UserModel.findOne({ _id: loggedUser._id });
+    const order = await OrderModel.findOne({
+      _id:
+        req.params.id
+    });
+    if (String(order.user) !== String(loggedUser._id)) {
+      return res.status(500).json({ msg: "you can't edit this" });
+    }
+    const editedOrder = await OrderModel.findOneAndUpdate(
+      { _id: order._id },
+      { ...req.body },
+      { new: true, runValidators: true }
+    );
 
-    const order = await orderModel.findOne({ _id: req.params.id });
-
-    return res.status(200).json(order);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
+    return res.status(200).json(editedOrder);
+  } catch (erro) {
+    console.log(erro);
+    return res.status(500).json(erro);
   }
 });
 

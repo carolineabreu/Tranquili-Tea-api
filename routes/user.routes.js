@@ -74,6 +74,19 @@ userRouter.post("/login", async (req, res) => {
 });
 
 userRouter.get(
+  "/all",
+  async (req, res) => {
+    try {
+      const allUsers = await UserModel.find();
+
+      return res.status(200).json(allUsers);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  });
+
+userRouter.get(
   "/profile",
   isAuth,
   attachCurrentUser,
@@ -103,6 +116,19 @@ userRouter.patch("/edit-profile", isAuth, attachCurrentUser, async (req, res) =>
   } catch (error) {
     console.log(error);
     return res.status(500).json(error);
+  }
+});
+
+userRouter.delete("/delete", isAuth, attachCurrentUser, async (req, res) => {
+  try {
+    const loggedInUser = req.currentUser;
+
+    const deleteUser = await UserModel.deleteOne({ _id: loggedInUser._id });
+
+    return res.status(200).json(deleteUser);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 

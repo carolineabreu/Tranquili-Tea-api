@@ -28,24 +28,28 @@ forumPostRouter.post(
     }
   });
 
-forumPostRouter.get("/all-posts", isAuth, attachCurrentUser, async (req, res) => {
-  try {
-    const loggedInUser = req.currentUser;
-    const userPosts = await ForumPostModel.find(
-      { owner: loggedInUser._id },
-    );
-    return res.status(200).json(userPosts);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json(error);
-  }
-});
+forumPostRouter.get(
+  "/all-posts",
+  isAuth,
+  attachCurrentUser,
+  async (req, res) => {
+    try {
+      const loggedInUser = req.currentUser;
+      const userPosts = await ForumPostModel.find(
+        { owner: loggedInUser._id },
+      );
+      return res.status(200).json(userPosts);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json(error);
+    }
+  });
 
 forumPostRouter.get(
   "/all",
   async (req, res) => {
     try {
-      const allPosts = await ForumPostModel.find().populate("owner").populate("comments");
+      const allPosts = await ForumPostModel.find().populate("owner.username").populate("comments");
 
       return res.status(200).json(allPosts);
     } catch (err) {

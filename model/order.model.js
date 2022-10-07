@@ -1,16 +1,20 @@
 import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: "User" },
-  order: {
-    id: { type: Schema.Types.ObjectId },
-    teas: { type: Schema.Types.ObjectId, ref: "Product" },
-    quantity: { type: Number, required: true },
-    price: { type: Number, required: true },
-    totalPrice: { type: Number, required: true },
-  },
-  status: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now() },
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
+  teas: [{
+    teaId: { type: Schema.Types.ObjectId, ref: "Tea", required: true },
+    name: String,
+    quantity: {
+      type: Number,
+      required: true,
+      min: 1,
+      default: 1
+    },
+    price: Number
+  }],
+  total: { type: Number, required: true, default: 0 },
+  createdAt: { type: Date, default: Date.now() }
 });
 
-export const orderModel = model("Order", orderSchema);
+export const OrderModel = model("Order", orderSchema);

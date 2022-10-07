@@ -72,4 +72,15 @@ teaRouter.patch("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   }
 });
 
+teaRouter.delete("/delete/:id", isAuth, attachCurrentUser, async (req, res) => {
+  try {
+    const deleteTea = await TeaModel.deleteOne({ _id: req.params.id });
+
+    return res.status(200).json(deleteTea);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+
 export { teaRouter };
