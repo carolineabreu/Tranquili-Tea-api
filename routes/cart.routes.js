@@ -8,12 +8,17 @@ const cartRouter = express.Router();
 
 //Create
 cartRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
-  const owner = req.user._id;
-  const [teaId, quantity] = req.body;
+  //const owner = req.user._id;
+  const owner = req.currentUser;
+  const { teaId, quantity } = req.body;
 
   try {
     const cart = await cartModel.findOne({ owner });
     const tea = await TeaModel.findOne({ _id: teaId });
+
+    if (!tea) {
+      return res.status(404).send({ message: "tea not found" });
+    }
 
     const price = tea.price;
     const name = tea.name;
