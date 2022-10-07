@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const teaSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
   name: { type: String, trim: true, required: true },
-  image: {
+  teaPicture: {
     type: String,
     default:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFbyPjIqZ3uqolWoR6E3W8WyITyQjBP_d-g&usqp=CAU",
