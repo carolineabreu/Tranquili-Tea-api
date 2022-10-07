@@ -1,31 +1,72 @@
 import express from "express";
 import { cartModel } from "../model/cart.model.js";
+import { TeaModel } from "../model/tea.model.js";
 import isAuth from "../middlewares/isAuth.js";
 import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 
 const cartRouter = express.Router();
 
 //Create
-cartRouter.post("/", async (req, res) => {
-  try {
-    const createdCart = await cartModel.create({ ...req.body });
+cartRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
+  const owner = req.user._id;
+  const [teaId, quantity] = req.body;
 
-    return res.status(201).json(createdCart);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json(error);
+  try {
+    const cart = await cartModel.findOne({ owner });
+    const tea = await TeaModel.findOne({ _id: teaId });
+
+    const price = tea.price;
+    const name = tea.name;
+
+    if (cart) {
+      const teaIndex = cart.teas.findIndex((tea) => tea.teaId == teaId);
+
+
+      if (teaIndex > -1) {
+        let product = cart.teas[teaIndex];
+        product.quantity += quantity;
+        cart.total = cart.teas.reduce((acc, curr) => {
+          return acc + curr.quantity * curr.price;
+        }, 0);
+        cart.teas[teaIndex] = product;
+        await cart.save();
+        res.status(200).send(cart);
+      } else {
+        cart.teas.push({ teaId, name, quantity, price });
+        cart.total = cart.teas.reduce((acc, curr) => {
+          return acc + curr.quantity * curr.price;
+        }, 0);
+        await cart.save();
+        res.status(200).send(cart);
+      }
+    } else {
+      const newCart = await cartModel.create({
+        owner,
+        teas: [{ teaId, name, quantity, price }],
+        total: quantity * price,
+      });
+      return res.status(201).send(newCart);
+    }
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
 //Read
-cartRouter.get("/all", isAuth, attachCurrentUser, async (req, res) => {
-  try {
-    const allCart = await cartModel.find();
+cartRouter.get("/cart", isAuth, /*attachCurrentUser,*/ async (req, res) => {
+  const owner = req.user._id;
 
-    return res.status(200).json(allCart);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json(error);
+  try {
+    const cart = await cartModel.findOne({ owner });
+    if (cart && cart.teas.length > 0) {
+      res.status(200).send(cart);
+    } else {
+      res.send(null);
+    }
+  } catch (err) {
+    res.status(500).send();
   }
 });
 
@@ -60,22 +101,33 @@ cartRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
 });
 
 //Delete
-cartRouter.delete(
-  "/delete/:id",
-  isAuth,
-  attachCurrentUser,
-  async (req, res) => {
-    try {
-      const deletedCart = await cartModel.deleteOne({
-        _id: req.params.id,
-      });
+cartRouter.delete("/delete", isAuth, attachCurrentUser, async (res, req) => {
+  const owner = req.user._id;
 
-      return res.status(200).json(deletedCart);
-    } catch (err) {
-      console.log(err);
-      return res.status(500).json(err);
+  const teaId = req.query.teaId;
+
+  try {
+    let cart = await cartModel.findOne({ owner });
+    const teaIndex = cart.teas.findIndex((tea) => tea.teaId == teaId);
+    if (teaIndex > -1) {
+      let tea = cart.teas[teaIndex];
+      cart.total -= tea.quantity * tea.price;
+      if (cart.total < 0) {
+        cart.total = 0;
+      }
+      cart.teas.splice(teaIndex, 1);
+      cart.total = cart.teas.reduce((acc, curr) => {
+        return acc + curr.quantity * curr.price;
+      }, 0);
+      cart = await cart.save();
+      res.status(200).send(cart);
+    } else {
+      res.status(404).send("tea not found");
     }
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
-);
+});
 
 export { cartRouter };

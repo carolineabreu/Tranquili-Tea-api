@@ -1,15 +1,20 @@
 import { Schema, model } from "mongoose";
 
 const cartSchema = new Schema({
-  cart: {
-    teas: { type: Schema.Types.ObjectId, ref: "Product" },
-    quantity: { type: Number, required: true },
-    price: { type: Number, required: true },
-    totalPrice: { type: Number, required: true },
-  },
-  zipCode: { type: Number },
-  discountCoupons: { type: String },
-  paymentMethod: { type: String, required: true },
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
+  teas: [{
+    teaId: { type: Schema.Types.ObjectId, ref: "Tea", required: true },
+    name: String,
+    quantity: {
+      type: Number,
+      required: true,
+      min: 1,
+      default: 1
+    },
+    price: Number
+  }],
+  total: { type: Number, required: true, default: 0 },
+  createdAt: { type: Date, default: Date.now() }
 });
 
 export const cartModel = model("Cart", cartSchema);
