@@ -60,8 +60,9 @@ cartRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
 });
 
 //Read
-cartRouter.get("/cart", isAuth, /*attachCurrentUser,*/ async (req, res) => {
-  const owner = req.user._id;
+cartRouter.get("/cart", isAuth, attachCurrentUser, async (req, res) => {
+  const owner = req.currentUser;
+  // const owner = req.user._id;
 
   try {
     const cart = await cartModel.findOne({ owner });
@@ -76,7 +77,7 @@ cartRouter.get("/cart", isAuth, /*attachCurrentUser,*/ async (req, res) => {
 });
 
 //Read Details
-cartRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
+cartRouter.get("/:id", async (req, res) => {
   try {
     const cart = await cartModel.findOne({
       _id: req.params.id,
@@ -90,7 +91,7 @@ cartRouter.get("/:id", isAuth, attachCurrentUser, async (res, req) => {
 });
 
 //Edit
-cartRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
+cartRouter.put("/edit/:id", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const editedCart = await cartModel.findOneAndUpdate(
       { _id: req.params.id },
@@ -107,7 +108,8 @@ cartRouter.put("/edit/:id", isAuth, attachCurrentUser, async (res, req) => {
 
 //Delete
 cartRouter.delete("/delete", isAuth, attachCurrentUser, async (res, req) => {
-  const owner = req.user._id;
+  const owner = req.currentUser;
+  // const owner = req.user._id;
 
   const teaId = req.query.teaId;
 
