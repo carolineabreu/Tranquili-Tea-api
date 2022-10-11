@@ -11,7 +11,7 @@ const teaSchema = new Schema({
   description: { type: String, required: true, minLength: 3 },
   mood: {
     type: String,
-    enum: ["Attention", "anxiety", "Moody", "Restlessness", "Stressed", "Tiresome"],
+    enum: ["Attention", "Anxiety", "Moodiness", "Restlessness", "Stress",  "Energy","Tiresome", "Focus"],
     required: true,
   },
   origin: { type: String, required: true },
