@@ -63,7 +63,7 @@ userRouter.post("/login", async (req, res) => {
           role: user.role,
         },
         token: token,
-      });{user.username}
+      }); { user.username; }
     } else {
       return res.status(401).json({ msg: "Email or password invalid." });
     }

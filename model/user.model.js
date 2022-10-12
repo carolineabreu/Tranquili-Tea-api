@@ -11,7 +11,7 @@ const userSchema = new Schema({
     match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gm,
   },
   passwordHash: { type: String, required: true },
-  phoneNumber: { type: Number },
+  phoneNumber: { type: Number, required: true },
   address: { type: String, minLength: 10 },
   role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
   createdAt: { type: Date, default: Date.now() },
