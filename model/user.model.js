@@ -16,6 +16,8 @@ const userSchema = new Schema({
   role: { type: String, enum: ["ADMIN", "USER"], default: "USER" },
   createdAt: { type: Date, default: Date.now() },
   about: { type: String },
+  picture: { type: String, default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIy2vRwSRoUACatub962auO36Uo5OjNQ5wCQ&usqp=CAU" },
+  backgroundColor: { type: String, default: "#BBDEFB" },
   orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
   teas: [{ type: Schema.Types.ObjectId, ref: "Tea" }],
