@@ -49,7 +49,7 @@ forumPostRouter.get(
   "/all",
   async (req, res) => {
     try {
-      const allPosts = await ForumPostModel.find().populate("owner.username").populate("comments");
+      const allPosts = await ForumPostModel.find().populate("owner").populate("comments");
 
       return res.status(200).json(allPosts);
     } catch (err) {
@@ -90,12 +90,6 @@ forumPostRouter.patch(
     }
   });
 
-
-
-/**
- * TODO:
- * -[] se sobrar tempo colocar a opção de tanto o usuário poder deletar seu post, quando um MOD poder excluir algum post.
- */
 forumPostRouter.delete(
   "/delete/:id",
   isAuth,
