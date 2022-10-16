@@ -6,8 +6,8 @@
     ],
     "description": "Lavender is a flowering plant in the mint family, with a great aroma and will help you to relax.",
     "category": [
-      "Stress",
-      "Anxiety"
+      " Stress",
+      " Anxiety"
     ],
     "origin": "Albania",
     "brew": "5 minutes",
@@ -26,8 +26,8 @@
     ],
     "description": "Lemon balm belongs to the mint family, it has a calm effect, used historically for relieve the nervous tension.",
     "category": [
-      "Stress",
-      "Anxiety"
+      " Stress",
+      " Anxiety"
     ],
     "origin": "Southern Europe",
     "brew": "3-5 minutes",
@@ -46,9 +46,9 @@
     ],
     "description": "Schisandra berry hails from wild, lush, and mountainous regions throughout China, it has adaptogenic properties which helps the body resist anxiety and stress.",
     "category": [
-      "Anxiety",
-      "Stress",
-      "Moodiness"
+      " Anxiety",
+      " Stress",
+      " Moodiness"
     ],
     "origin": "China",
     "brew": "5 minutes",
@@ -67,7 +67,7 @@
     ],
     "description": "The active ingredient in peppermint is menthol, which is said to stimulate passion and creativity.",
     "category": [
-      "Anxiety"
+      " Anxiety"
     ],
     "origin": "Pacific Northwest",
     "brew": "1 minute",
@@ -86,8 +86,8 @@
     ],
     "description": "St John's Wort tea is drunk for its calming nature, its leaves, flowers, and seeds can be used to make the tea.",
     "category": [
-      "Moodiness",
-      "Anxiety"
+      " Moodiness",
+      " Anxiety"
     ],
     "origin": "Bulgaria",
     "brew": "7-10 minutes",
@@ -106,8 +106,8 @@
     ],
     "description": "Valerian is a root and a herbal sedative, its name come from the Latin word 'valere' which essentially means 'to be well'.",
     "category": [
-      "Restlessness",
-      "Moodiness"
+      " Restlessness",
+      " Moodiness"
     ],
     "origin": "Poland",
     "brew": "5 minutes",
@@ -126,7 +126,7 @@
     ],
     "description": "Rooibos is made from the leaves of the Aspalathus linearis plant and is rich in antioxidants.",
     "category": [
-      "Moodiness"
+      " Moodiness"
     ],
     "origin": "South Africa",
     "brew": "5-6 minutes",
@@ -145,8 +145,8 @@
     ],
     "description": "Turmeric tea is made from the roots of the turmeric plant, and the main component in turmeric is curcumin.",
     "category": [
-      "Moodiness",
-      "Restlessness"
+      " Moodiness",
+      " Restlessness"
     ],
     "origin": "India",
     "brew": "4-5 minutes",
@@ -165,8 +165,8 @@
     ],
     "description": "Stay focused, calm and energised with organic Matcha – the combo of caffeine and L-theanine buddy up to give you a slower, sustained release of energy without any jitters. Power on for longer with this super turbo energy tea!",
     "category": [
-      "Focus",
-      "Tiresome"
+      " Focus",
+      " Tiresome"
     ],
     "origin": "Japan",
     "brew": "2-3 min",
@@ -185,8 +185,8 @@
     ],
     "description": "Allow this traditional tea of Japan to lift your spirits day or night with a fresh, clean yet subtly powerful brew. This Japanese Sencha is grassy green and oh so vibrant. Green tea is used to improve mental alertness and thinking",
     "category": [
-      "Focus",
-      "Tiresome"
+      " Focus",
+      " Tiresome"
     ],
     "origin": "China",
     "brew": "2 minutes",
@@ -205,8 +205,8 @@
     ],
     "description": "This quintessential English tea is filled with a variety of health benefits. Earl Grey tea is loaded with antioxidants and catechins that can help fight oral infections",
     "category": [
-      "Tiresome",
-      "Focus"
+      " Tiresome",
+      " Focus"
     ],
     "origin": "China",
     "brew": "4minutes",
@@ -225,8 +225,8 @@
     ],
     "description": "“White tea is rich in the amino acid l-theanine (almost as much as green tea), a compound that is associated with calm and improved focus.”",
     "category": [
-      "Focus",
-      "Tiresome"
+      " Focus",
+      " Tiresome"
     ],
     "origin": "China",
     "brew": "2 minutes",
@@ -245,8 +245,8 @@
     ],
     "description": "A soothing cup of tea with strong notes of fresh basil. Tulsi, or holy basil, is quite popular for its medicinal properties in Eastern part of the world. ",
     "category": [
-      "Focus",
-      "Tiresome"
+      " Focus",
+      " Tiresome"
     ],
     "origin": "India",
     "brew": "5-10 min",
@@ -265,7 +265,7 @@
     ],
     "description": "Drinking this fresh, Pennsylvania-grown Chamomile Herbal Tea is like snuggling up on your couch with a warm blanket for some quiet relaxation time. Full-bodied floral aroma with hints of apple.",
     "category": [
-      "Restlessness"
+      " Restlessness"
     ],
     "origin": "Egypt",
     "brew": "3-5 minutes",
@@ -284,8 +284,8 @@
     ],
     "description": "Kanna is an indigenous South African plant that's been used for centuries as an herbal remedy and natural category booster.",
     "category": [
-      "Moodiness",
-      "Tiresome"
+      " Moodiness",
+      " Tiresome"
     ],
     "origin": "South Africa",
     "brew": "5 minutes",
@@ -304,8 +304,8 @@
     ],
     "description": "Rich in vitamins, minerals and antioxidants, rosemary has been used for centuries as food and medicine. It aids in digestion, improves mental focus and keeps your brain sharp.",
     "category": [
-      "Focus",
-      "Tiresome"
+      " Focus",
+      " Tiresome"
     ],
     "origin": "Marocco",
     "brew": "2-3 minutes",
@@ -324,9 +324,9 @@
     ],
     "description": "Hop tea is made by pouring hot water over fresh or dried hop cones and allowing them to steep. It's great for a bedtime tea because of its sedative properties",
     "category": [
-      "Restlessness",
-      "Stress",
-      "Anxiety"
+      " Restlessness",
+      " Stress",
+      " Anxiety"
     ],
     "origin": "Europe",
     "brew": "20-30 min",
@@ -345,9 +345,9 @@
     ],
     "description": "Passionflower is a flowering type of vine that's been said to help with insomnia, anxiety, hot flashes, pain, and more. With over 500 known species of the plant, there's a lot of benefits to go around.",
     "category": [
-      "Anxiety",
-      "Stress",
-      "Restlessness"
+      " Anxiety",
+      " Stress",
+      " Restlessness"
     ],
     "origin": "The United States, Central and South America",
     "brew": "6-8 minutes",
@@ -366,7 +366,7 @@
     ],
     "description": "Full-bodied black tea, made by boiling it in milk with a mixture of aromatic traditional Indian herbs and spices.",
     "category": [
-      "TIresome"
+      " TIresome"
     ],
     "origin": "India",
     "brew": "3 minutes",
@@ -385,8 +385,8 @@
     ],
     "description": "Ginseng has been used in Chinese medicine for hundreds of years to improve health. It has a strong, distinctly bitter flavour with earthy, warming notes.",
     "category": [
-      "Stress",
-      "Focus"
+      " Stress",
+      " Focus"
     ],
     "origin": "Korea, China",
     "brew": "5 - 10 minutes",
@@ -405,8 +405,8 @@
     ],
     "description": "Traditionally used in African and Indian herbal medicine, this tea is believed to help the body cope with stress and improve brain function. It has an earthy, somewhat pungent, slightly creamy taste.",
     "category": [
-      "Stress",
-      "Restlessness"
+      " Stress",
+      " Restlessness"
     ],
     "origin": "India",
     "brew": "3 - 5 minutes",
@@ -425,7 +425,7 @@
     ],
     "description": "Floral and fruity at the same time, with a strong orange flavour, the Oolong tea is refreshing an tasty. It can also provide benefits to health including combating heart disease and diabetes.",
     "category": [
-      "Anxiety"
+      " Anxiety"
     ],
     "origin": "China",
     "brew": "3 minutes",
@@ -444,7 +444,7 @@
     ],
     "description": "Rich in antioxidants and nutrients, it can be made pure or with varied blends of flowers and fruits. The Yerba mate may be served cold or hot. its leaves and twigs are dried, typically over a fire, and steeped in hot water to make an herbal tea.",
     "category": [
-      "Tiresome"
+      " Tiresome"
     ],
     "origin": "South America",
     "brew": "5 minutes",
