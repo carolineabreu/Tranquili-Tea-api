@@ -9,9 +9,9 @@ const teaSchema = new Schema({
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFbyPjIqZ3uqolWoR6E3W8WyITyQjBP_d-g&usqp=CAU",
   },
   description: { type: String, required: true, minLength: 3 },
-  mood: {
+  category: {
     type: String,
-    enum: ["Attention", "Anxiety", "Moodiness", "Restlessness", "Stress",  "Energy","Tiresome", "Focus"],
+    enum: [ "Anxiety", "Moodiness", "Restlessness", "Stress","Tiresome", "Focus"],
     required: true,
   },
   origin: { type: String, required: true },
