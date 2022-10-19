@@ -19,7 +19,7 @@ const teaSchema = new Schema({
   temperature: { type: Number, required: true },
   flavour: { type: String, required: true },
   ingredients: [{ type: String, required: true }],
-  caffeine:[{type:String, required:true}],
+  caffeine: {type:String, required:true},
   price: { type: Number, required: true },
   reviews: { type: Schema.Types.ObjectId, ref: "Review" },
 });
