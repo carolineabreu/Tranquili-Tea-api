@@ -19,6 +19,28 @@
     ],
     "price": 9.98
   },
+
+  {
+    "name": "St. John's Wort",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7IipKerc7yV9daIIxlUzYdZwGQahiKPpIw&usqp=CAU"
+    ],
+    "description": "St John's Wort tea is drunk for its calming nature, its leaves, flowers, and seeds can be used to make the tea.",
+    "category": [
+      " Moodiness",
+      " Anxiety"
+    ],
+    "origin": "Bulgaria",
+    "brew": "7-10 minutes",
+    "temperature": 93,
+    "caffeine": false,
+    "flavour": "Mild bitter and earthy.",
+    "ingredients": [
+      " Organic St. John's Wort"
+    ],
+    "price": 10.98
+  },
+  
   {
     "name": "Lemon Balm",
     "image": [
@@ -80,29 +102,30 @@
     "price": 8.98
   },
   {
-    "name": "St. John's Wort",
+    "name": "Lemon Balm",
     "image": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7IipKerc7yV9daIIxlUzYdZwGQahiKPpIw&usqp=CAU"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNl8B9FAzja1YPa7JVLaQ4-tVh7kGJO-gYVQ&usqp=CAU"
     ],
-    "description": "St John's Wort tea is drunk for its calming nature, its leaves, flowers, and seeds can be used to make the tea.",
+    "description": "Lemon balm belongs to the mint family, it has a calm effect, used historically for relieve the nervous tension.",
     "category": [
-      " Moodiness",
+      " Stress",
       " Anxiety"
     ],
-    "origin": "Bulgaria",
-    "brew": "7-10 minutes",
-    "temperature": 93,
+    "origin": "Southern Europe",
+    "brew": "3-5 minutes",
+    "temperature": "93",
     "caffeine": false,
-    "flavour": "Mild bitter and earthy.",
+    "flavour": " Pleasantly mild, with subtle citrus notes.",
     "ingredients": [
-      " Organic St. John's Wort"
+      "Organic Lemon Balm"
     ],
-    "price": 10.98
+    "price": 7.98
   },
+  
   {
     "name": "Valerian",
     "image": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyOjP9HXuqfbv9A815IP6xSdu2VH-XFle4Yw&usqp=CAU"
+      "http://cdn.shopify.com/s/files/1/1093/4358/products/VALERIAN_600x.jpg?v=1586440189"
     ],
     "description": "Valerian is a root and a herbal sedative, its name come from the Latin word 'valere' which essentially means 'to be well'.",
     "category": [
@@ -161,7 +184,7 @@
   {
     "name": "Matcha",
     "image": [
-      "https://rishi-tea.com/product/image/medium/osg-sana_matcha-super-green-organic-loose-leaf-japanese-green-tea-blend.jpg"
+      "hhttps://i.etsystatic.com/26228998/r/il/f2c9ad/2682579096/il_794xN.2682579096_ikr7.jpg"
     ],
     "description": "Stay focused, calm and energised with organic Matcha – the combo of caffeine and L-theanine buddy up to give you a slower, sustained release of energy without any jitters. Power on for longer with this super turbo energy tea!",
     "category": [
@@ -201,7 +224,25 @@
   {
     "name": "Earl Grey",
     "image": [
-      "https://cdn2.bigcommerce.com/server2800/59819/product_images/uploaded_images/earl-looseleaf-thumb.jpg"
+      {
+        "name": "Yerba Tea",
+        "image": [
+          "https://cdn.shopify.com/s/files/1/0304/7519/0408/products/yerbamate_61b1dbfd-477b-421f-8df8-e3fe95d561e5_1024x1024@2x.jpg?v=1605401702"
+        ],
+        "description": "Rich in antioxidants and nutrients, it can be made pure or with varied blends of flowers and fruits. The Yerba mate may be served cold or hot. its leaves and twigs are dried, typically over a fire, and steeped in hot water to make an herbal tea.",
+        "category": [
+          " Tiresome"
+        ],
+        "origin": "South America",
+        "brew": "5 minutes",
+        "temperature": 95,
+        "caffeine": true,
+        "flavour": "Bitter, grassy",
+        "ingredients": [
+          "Yerba Mate"
+        ],
+        "price": 10.98
+      }
     ],
     "description": "This quintessential English tea is filled with a variety of health benefits. Earl Grey tea is loaded with antioxidants and catechins that can help fight oral infections",
     "category": [
@@ -221,12 +262,11 @@
   {
     "name": "White Tea",
     "image": [
-      "https://cdn2.bigcommerce.com/server2800/59819/product_images/uploaded_images/white-tea-2.jpg?t=1499908584"
+      "https://cdn.shopify.com/s/files/1/1057/4198/products/2000221_400_400x400.jpg?v=1529700089"
     ],
     "description": "“White tea is rich in the amino acid l-theanine (almost as much as green tea), a compound that is associated with calm and improved focus.”",
     "category": [
-      " Focus",
-      " Tiresome"
+      "Anxiety"
     ],
     "origin": "China",
     "brew": "2 minutes",
@@ -245,8 +285,8 @@
     ],
     "description": "A soothing cup of tea with strong notes of fresh basil. Tulsi, or holy basil, is quite popular for its medicinal properties in Eastern part of the world. ",
     "category": [
-      " Focus",
-      " Tiresome"
+      "Anxiety"
+
     ],
     "origin": "India",
     "brew": "5-10 min",
@@ -280,7 +320,7 @@
   {
     "name": "Kanna",
     "image": [
-      "https://psychonaut.ca/wp-content/uploads/2021/11/kanna-1.jpg"
+      "https://cdn.shopify.com/s/files/1/2384/5225/products/kanna-smoke-cut_1600x.jpg?v=1570230671"
     ],
     "description": "Kanna is an indigenous South African plant that's been used for centuries as an herbal remedy and natural category booster.",
     "category": [
@@ -320,7 +360,7 @@
   {
     "name": "Hop Tea",
     "image": [
-      "https://m.media-amazon.com/images/I/91V-ynn1zBL._AC_SL1500_.jpg"
+      "https://shopteagoetz.com/media/image/80/54/9a/6058-kraeutertee-hopfenglueck.jpg"
     ],
     "description": "Hop tea is made by pouring hot water over fresh or dried hop cones and allowing them to steep. It's great for a bedtime tea because of its sedative properties",
     "category": [
@@ -341,7 +381,7 @@
   {
     "name": "Passion Flower Tea",
     "image": [
-      "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/2019_5/12231-drinks-series-passion_flower_tea-header-1296x728.jpg?w=1155&h=1528"
+      "https://i.etsystatic.com/13700004/r/il/0f4ea8/1042181364/il_570xN.1042181364_pych.jpg"
     ],
     "description": "Passionflower is a flowering type of vine that's been said to help with insomnia, anxiety, hot flashes, pain, and more. With over 500 known species of the plant, there's a lot of benefits to go around.",
     "category": [
@@ -381,7 +421,7 @@
   {
     "name": "Ginseg Tea",
     "image": [
-      "https://goodtearesource.com/wp-content/uploads/2016/04/Ginseng-Oolong-tea.jpg"
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRLoq8s8Yz_QgSetN1uJUO8ZEpO7hE9Roz436-1M9VKR9nHXlRm-HJOuzWBSR_5LiF6PZn0rtevI-iAnMKwqxoR0sW0q3jo3fMmGnf6jW_Hdea78XBXP9Ia&usqp=CAE"
     ],
     "description": "Ginseng has been used in Chinese medicine for hundreds of years to improve health. It has a strong, distinctly bitter flavour with earthy, warming notes.",
     "category": [
@@ -401,7 +441,7 @@
   {
     "name": "Ashwaganda Tea",
     "image": [
-      "https://cdn.shopify.com/s/files/1/0080/8796/1698/products/7E8153B8-7783-48AF-848F-700A4736FECC_1200x.jpeg?v=1570236258"
+      "https://teasage.in/wp-content/uploads/2016/03/19-morn-booser-300x300.jpg"
     ],
     "description": "Traditionally used in African and Indian herbal medicine, this tea is believed to help the body cope with stress and improve brain function. It has an earthy, somewhat pungent, slightly creamy taste.",
     "category": [
@@ -421,7 +461,7 @@
   {
     "name": "Oonlog Tea",
     "image": [
-      "https://www.spiceandtea.com/media/catalog/product/cache/fb0a90b8e26ceb5370e874c9b332d3b2/s/k/sku-587_1.jpg"
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRqkw57RJg0KebaqgYujmadSqbvYPw9XTLUKpfpoEbwBupfMwMlx7wbIBHbRxMF4spDmvLYUW5jkZVmDxKFUbBGeNjbO6PFf3HtbDmCODt4Z_n1Cej_7icH&usqp=CAE"
     ],
     "description": "Floral and fruity at the same time, with a strong orange flavour, the Oolong tea is refreshing an tasty. It can also provide benefits to health including combating heart disease and diabetes.",
     "category": [
@@ -440,7 +480,7 @@
   {
     "name": "Yerba Tea",
     "image": [
-      "https://cdn.shopify.com/s/files/1/1512/5894/articles/AdobeStock_429385735_1000x.jpg?v=1647978749"
+      "https://cdn.shopify.com/s/files/1/0304/7519/0408/products/yerbamate_61b1dbfd-477b-421f-8df8-e3fe95d561e5_1024x1024@2x.jpg?v=1605401702"
     ],
     "description": "Rich in antioxidants and nutrients, it can be made pure or with varied blends of flowers and fruits. The Yerba mate may be served cold or hot. its leaves and twigs are dried, typically over a fire, and steeped in hot water to make an herbal tea.",
     "category": [
@@ -453,6 +493,27 @@
     "flavour": "Bitter, grassy",
     "ingredients": [
       "Yerba Mate"
+    ],
+    "price": 10.98
+  },
+
+  {
+    "name": "Black Tea",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8cyAe_yKwhyCtRq0u9-OpZb8KJjaAX680A&usqp=CAU"
+    ],
+    "description": "From the Assam Valley of North-East India comes this medium-bodied Asamese tea, organically grown among tribal communities. This fine grade of tea consists of young tea buds blended with the uppermost leaves of the tea plant and its flowers, supplementing its rich aroma. .",
+    "category": [
+      " Tiresome",
+      "Focus"
+    ],
+    "origin": "India",
+    "brew": "2-5 minutes",
+    "temperature": 100,
+    "caffeine": true,
+    "flavour": "Malty, slightly earthy",
+    "ingredients": [
+      "Organic Camelia Sinensis"
     ],
     "price": 10.98
   }
