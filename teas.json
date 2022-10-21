@@ -40,27 +40,6 @@
     ],
     "price": 10.98
   },
-  
-  {
-    "name": "Lemon Balm",
-    "image": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNl8B9FAzja1YPa7JVLaQ4-tVh7kGJO-gYVQ&usqp=CAU"
-    ],
-    "description": "Lemon balm belongs to the mint family, it has a calm effect, used historically for relieve the nervous tension.",
-    "category": [
-      " Stress",
-      " Anxiety"
-    ],
-    "origin": "Southern Europe",
-    "brew": "3-5 minutes",
-    "temperature": "93",
-    "caffeine": false,
-    "flavour": " Pleasantly mild, with subtle citrus notes.",
-    "ingredients": [
-      "Organic Lemon Balm"
-    ],
-    "price": 7.98
-  },
   {
     "name": "Schisandra",
     "image": [
@@ -82,6 +61,28 @@
     ],
     "price": 9.98
   },
+  
+  {
+    "name": "Lemon Balm",
+    "image": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNl8B9FAzja1YPa7JVLaQ4-tVh7kGJO-gYVQ&usqp=CAU"
+    ],
+    "description": "Lemon balm belongs to the mint family, it has a calm effect, used historically for relieve the nervous tension.",
+    "category": [
+      " Stress",
+      " Anxiety"
+    ],
+    "origin": "Southern Europe",
+    "brew": "3-5 minutes",
+    "temperature": "93",
+    "caffeine": false,
+    "flavour": " Pleasantly mild, with subtle citrus notes.",
+    "ingredients": [
+      "Organic Lemon Balm"
+    ],
+    "price": 7.98
+  },
+
   {
     "name": "Peppermint",
     "image": [
@@ -184,7 +185,7 @@
   {
     "name": "Matcha",
     "image": [
-      "hhttps://i.etsystatic.com/26228998/r/il/f2c9ad/2682579096/il_794xN.2682579096_ikr7.jpg"
+      "https://m.media-amazon.com/images/I/51PLwYXu+RL._AC_.jpg"
     ],
     "description": "Stay focused, calm and energised with organic Matcha – the combo of caffeine and L-theanine buddy up to give you a slower, sustained release of energy without any jitters. Power on for longer with this super turbo energy tea!",
     "category": [
@@ -227,7 +228,7 @@
       {
         "name": "Yerba Tea",
         "image": [
-          "https://cdn.shopify.com/s/files/1/0304/7519/0408/products/yerbamate_61b1dbfd-477b-421f-8df8-e3fe95d561e5_1024x1024@2x.jpg?v=1605401702"
+          "https://i.etsystatic.com/21986890/r/il/9fdd1f/3627358433/il_1588xN.3627358433_q4cj.jpg"
         ],
         "description": "Rich in antioxidants and nutrients, it can be made pure or with varied blends of flowers and fruits. The Yerba mate may be served cold or hot. its leaves and twigs are dried, typically over a fire, and steeped in hot water to make an herbal tea.",
         "category": [
@@ -262,7 +263,7 @@
   {
     "name": "White Tea",
     "image": [
-      "https://cdn.shopify.com/s/files/1/1057/4198/products/2000221_400_400x400.jpg?v=1529700089"
+      "https://cdn2.bigcommerce.com/server2800/59819/product_images/uploaded_images/white-tea-2.jpg?t=1499908584"
     ],
     "description": "“White tea is rich in the amino acid l-theanine (almost as much as green tea), a compound that is associated with calm and improved focus.”",
     "category": [
@@ -357,27 +358,7 @@
     ],
     "price": 9.98
   },
-  {
-    "name": "Hop Tea",
-    "image": [
-      "https://shopteagoetz.com/media/image/80/54/9a/6058-kraeutertee-hopfenglueck.jpg"
-    ],
-    "description": "Hop tea is made by pouring hot water over fresh or dried hop cones and allowing them to steep. It's great for a bedtime tea because of its sedative properties",
-    "category": [
-      " Restlessness",
-      " Stress",
-      " Anxiety"
-    ],
-    "origin": "Europe",
-    "brew": "20-30 min",
-    "temperature": 79,
-    "caffeine": true,
-    "flavour": "Citrus, fruity, minty",
-    "ingredients": [
-      "Raw Hops"
-    ],
-    "price": 10.98
-  },
+
   {
     "name": "Passion Flower Tea",
     "image": [
@@ -415,6 +396,27 @@
     "flavour": "Spicy Ginger.",
     "ingredients": [
       "'Black Tea, Cinnamon, Cardamom, Ginger Root, Black Pepper, Cloves"
+    ],
+    "price": 10.98
+  },
+  {
+    "name": "Hop Tea",
+    "image": [
+      "https://shopteagoetz.com/media/image/80/54/9a/6058-kraeutertee-hopfenglueck.jpg"
+    ],
+    "description": "Hop tea is made by pouring hot water over fresh or dried hop cones and allowing them to steep. It's great for a bedtime tea because of its sedative properties",
+    "category": [
+      " Restlessness",
+      " Stress",
+      " Anxiety"
+    ],
+    "origin": "Europe",
+    "brew": "20-30 min",
+    "temperature": 79,
+    "caffeine": true,
+    "flavour": "Citrus, fruity, minty",
+    "ingredients": [
+      "Raw Hops"
     ],
     "price": 10.98
   },
